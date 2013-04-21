@@ -23,10 +23,6 @@ set smartindent
 set wildmenu
 "set viminfo='20,\"50
 set viminfo='100,f1
-imap <C-tab> :tabnext<CR>
-imap <C-tab> :tabnext<CR>
-map <C-S-tab> :tabprev<CR>
-map <C-S-tab> :tabprev<CR>
 
 function! TabPolicy(num_spaces)
   set expandtab
