@@ -71,4 +71,4 @@ extract () {
 export XDG_CACHE_HOME=/tmp/jackmab1-cache/
 [ -d $XDG_CACHE_HOME ] || mkdir $XDG_CACHE_HOME
 
-source bin/liquidprompt
+source ~/bin/liquidprompt
