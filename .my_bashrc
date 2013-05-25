@@ -77,3 +77,11 @@ export PATH=${PATH}:~/.cabal/bin
 
 alias sshman="ssh jackmab1@rs0.cs.man.ac.uk"
 alias sshxman="ssh -CX jackmab1@rs0.cs.man.ac.uk"
+alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
+
+source ~/.local_bashrc
+
+github-clone() {
+  username=bjackman
+  git clone git@github.com:${username}/${1}.git
+}
