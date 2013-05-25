@@ -1,4 +1,4 @@
-#sets aliases for course exercise directories.
+#sets aliases for course exercise directories. (CS UoM)
 for course in `ls ~ | grep "^COMP"`
 do
   alias `echo $course | cut -c 5-7`="cd ~/$course"
@@ -8,30 +8,12 @@ do
   done
 done
 
-#set alias for gvim placed at top of screen shifted to the left the exact width
-#of a n xterm.
-alias bvim="gvim -geometry 84x54+512+0"
-
 #hopefully sets default file permissions to allow the user "nobody" to
 #access files in public_html directory
 umask 073
 
-#set alias for running in a new xterm
-alias 'xvim'="xterm -e"
-
-#alias for making a script/anything executable
-alias 'chx'="chmod +x"
-
 #checking for lines over 80 chars in length
 alias checklength="grep .\{80,\}"
-
-#alii for directories
-#a trailing space on a alias' value will cause bash to also interpret
-#following tokens as aliases (awesome), so do it for cd 
-#, so we can do "cd wine" to cd to the aliased dir "wine"
-#alias cd="cd "
-#(taken away because it broke JTLs dotfiles
-alias wine="cd ~/project_html/Z5/matchmeawine"
 
 #SSH_ASKPASS holds `which gnome-ssh-askpass` by default. git calls this
 #graphical program even when running on a terminal (a bug). fix like this:
@@ -63,7 +45,6 @@ extract () {
      fi
 }
  
- alias rm_firefox_lock="rm /home/S11/jackmab1/.mozilla/firefox/dti0hrii.brendan/.parentlock"
  
  PATH=${PATH}:/opt/matlab-r2012a/bin/
 
@@ -78,10 +59,24 @@ export PATH=${PATH}:~/.cabal/bin
 alias sshman="ssh jackmab1@rs0.cs.man.ac.uk"
 alias sshxman="ssh -CX jackmab1@rs0.cs.man.ac.uk"
 alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
+#for the shitty pip package on fedora:
+alias pipinstall="pip-python install -U --install-option=--user pip"
+alias rm_firefox_lock="rm /home/S11/jackmab1/.mozilla/firefox/dti0hrii.brendan/.parentlock"
 
 source ~/.local_bashrc
 
+#tricks to quickly clone hosted git repos
 github-clone() {
+  generic-git-clone "github.com" $1 
+}
+
+bitbucket-clone() {
+  generic-git-clone "bitbucket.org" $1 
+}
+
+generic-git-clone() {
   username=bjackman
-  git clone git@github.com:${username}/${1}.git
+  host_domain=$1
+  repo_name=$2
+  git clone git@{host_domain}:${username}/${repo_name}.git
 }
