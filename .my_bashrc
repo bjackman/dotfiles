@@ -62,6 +62,7 @@ alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
 #for the shitty pip package on fedora:
 alias pipinstall="pip-python install -U --install-option=--user pip"
 alias rm_firefox_lock="rm /home/S11/jackmab1/.mozilla/firefox/dti0hrii.brendan/.parentlock"
+alias clbin="curl -F 'clbin=<-' https://clbin.com"
 
 source ~/.local_bashrc
 
