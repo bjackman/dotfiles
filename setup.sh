@@ -5,9 +5,15 @@ else
   echo "source ~/.my_bashrc" >> ~/.bashrc
 fi
 
-if [[ -e ~/.my_bashrc ]]; then
-  echo "~/.my_bashrc already exists, could not create link"
-else
-  echo "linking ~/my_bashrc to ~/dotfiles/.my_bashrc"
-  ln -s ~/dotfiles/.my_bashrc ~/.my_bashrc
-fi
+function link {
+  if [[ -e ~/$1 ]]; then
+    echo "~/$1 already exists, could not create link"
+  else
+    echo "linking ~/$1 to ~/dotfiles/$1"
+    ln -s ~/dotfiles/$1 ~/$1
+  fi
+}
+
+for file in .my_bashrc .vimrc; do
+  link $file
+done
