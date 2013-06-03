@@ -81,5 +81,5 @@ generic-git-clone() {
   username=bjackman
   host_domain=$1
   repo_name=$2
-  git clone git@{host_domain}:${username}/${repo_name}.git
+  git clone git@${host_domain}:${username}/${repo_name}.git
 }
