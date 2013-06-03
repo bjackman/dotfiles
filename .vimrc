@@ -6,6 +6,7 @@ nmap gx <Plug>NetrwBrowseX
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
 let &cpo=s:cpo_save
 unlet s:cpo_save
+
 set textwidth=80
 set number
 set autoindent
@@ -23,6 +24,11 @@ set smartindent
 set wildmenu
 "set viminfo='20,\"50
 set viminfo='100,f1
+"creates a 3 line gap (scroll offset) between the cursor and the edge of the buffer
+set scrolloff=3
+set ttyfast
+"an experiment - perhaps useful for stuff like d13j where you guess?!
+set relativenumber
 
 function! TabPolicy(num_spaces)
   set expandtab
