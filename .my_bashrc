@@ -64,12 +64,13 @@ alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
 alias pipinstall="pip-python install -U --install-option=--user pip"
 alias rm_firefox_lock="rm /home/S11/jackmab1/.mozilla/firefox/dti0hrii.brendan/.parentlock"
 alias clbin="curl -F 'clbin=<-' https://clbin.com"
+alias bashrc="source ~/.bashrc"
+alias webserver="python -m SimpleHTTPServer 8080"
 
 if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
 fi
 
-alias bashrc="source ~/.bashrc"
 
 #tricks to quickly clone hosted git repos
 github-clone() {
