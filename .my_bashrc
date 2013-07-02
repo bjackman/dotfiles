@@ -24,6 +24,7 @@ alias mu0="cd /home/S11/jackmab1/Cadence/COMP22111/src/MU0"
 
 #make gvim open all in the same window with tabs
 alias gvim="gvim --remote-tab"
+
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -46,11 +47,11 @@ extract () {
 }
  
  
- PATH=${PATH}:/opt/matlab-r2012a/bin/
-
-#create cache directory for firefox
-export XDG_CACHE_HOME=/tmp/jackmab1-cache/
-[ -d $XDG_CACHE_HOME ] || mkdir $XDG_CACHE_HOME
+#create cache directory for firefox at uni (put this in .local_bashrc!)
+if [[ `whoami` = "jackmab1" ]]; then
+  export XDG_CACHE_HOME=/tmp/jackmab1-cache/
+  [ -d $XDG_CACHE_HOME ] || mkdir $XDG_CACHE_HOME
+fi
 
 source ~/bin/liquidprompt
 
@@ -68,18 +69,25 @@ if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
 fi
 
+alias bashrc="source ~/.bashrc"
+
 #tricks to quickly clone hosted git repos
 github-clone() {
-  generic-git-clone "github.com" $1 
+  generic-git-clone "github.com" $* 
 }
 
 bitbucket-clone() {
-  generic-git-clone "bitbucket.org" $1 
+  generic-git-clone "bitbucket.org" $* 
 }
 
 generic-git-clone() {
-  username=bjackman
   host_domain=$1
-  repo_name=$2
+  if [[ $# -lt 3 ]]; then
+    username=bjackman
+    repo_name=$2
+  else
+    username=$2
+    repo_name=$3
+  fi
   git clone git@${host_domain}:${username}/${repo_name}.git
 }
