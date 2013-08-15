@@ -17,3 +17,9 @@ function link {
 for file in .my_bashrc .vimrc; do
   link $file
 done
+
+if [[ ! -x ~/bin/liquidprompt ]]
+  echo "You need to install liquidprompt."
+  echo "run: github-clone https://github.com/nojhan/liquidprompt"
+fi
+source ~/.bashrc
