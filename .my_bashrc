@@ -55,6 +55,7 @@ fi
 source ~/bin/liquidprompt
 
 export PATH=${PATH}:~/.cabal/bin
+export PATH=${PATH}:~/bin
 
 alias sshman="ssh jackmab1@rs0.cs.man.ac.uk"
 alias sshxman="ssh -CX jackmab1@rs0.cs.man.ac.uk"
