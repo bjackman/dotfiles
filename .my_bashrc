@@ -93,3 +93,8 @@ generic-git-clone() {
   fi
   git clone git@${host_domain}:${username}/${repo_name}.git
 }
+
+newdir() {
+  mkdir $1
+  cd $1
+}
