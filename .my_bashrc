@@ -12,18 +12,11 @@ done
 #access files in public_html directory
 umask 073
 
-#checking for lines over 80 chars in length
-alias checklength="grep .\{80,\}"
-
 #SSH_ASKPASS holds `which gnome-ssh-askpass` by default. git calls this
 #graphical program even when running on a terminal (a bug). fix like this:
 unset SSH_ASKPASS
 
 EDITOR="vim"
-alias mu0="cd /home/S11/jackmab1/Cadence/COMP22111/src/MU0"
-
-#make gvim open all in the same window with tabs
-alias gvim="gvim --remote-tab"
 
 extract () {
     if [ -f $1 ] ; then
@@ -57,6 +50,8 @@ source ~/bin/liquidprompt
 
 export PATH=${PATH}:~/.cabal/bin
 
+#make gvim open all in the same window with tabs
+alias gvim="gvim --remote-tab"
 alias sshman="ssh jackmab1@rs0.cs.man.ac.uk"
 alias sshxman="ssh -CX jackmab1@rs0.cs.man.ac.uk"
 alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
@@ -66,10 +61,6 @@ alias rm_firefox_lock="rm /home/S11/jackmab1/.mozilla/firefox/dti0hrii.brendan/.
 alias clbin="curl -F 'clbin=<-' https://clbin.com"
 alias bashrc="source ~/.bashrc"
 alias webserver="python -m SimpleHTTPServer 8080"
-
-if [[ -f ~/.local_bashrc ]]; then
-  source ~/.local_bashrc
-fi
 
 
 #tricks to quickly clone hosted git repos
@@ -92,3 +83,22 @@ generic-git-clone() {
   fi
   git clone git@${host_domain}:${username}/${repo_name}.git
 }
+
+#distro non-specific update
+update() {
+  if [[ -f /etc/lsb-release ]]; then
+    source /etc/lsb-release
+    case $DISTRIB_ID in
+      "Ubuntu") sudo apt-get update && sudo apt-upgrade ;;
+      "Fedora") sudo yum update ;;
+    esac
+  else
+    echo "No /etc/lsb-release."
+    return 1
+  fi
+}
+
+if [[ -f ~/.local_bashrc ]]; then
+  source ~/.local_bashrc
+fi
+
