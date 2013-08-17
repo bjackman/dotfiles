@@ -1,4 +1,4 @@
-#sets aliases for course exercise directories. (CS UoM) for course in `ls ~ | grep "^COMP"`
+#sets aliases for course exercise directories. (CS UoM)
 for course in `ls ~ | grep "^COMP"`
 do
   alias `echo $course | cut -c 5-7`="cd ~/$course"
@@ -37,13 +37,6 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
- 
- 
-#create cache directory for firefox at uni (put this in .local_bashrc!)
-if [[ `whoami` = "jackmab1" ]]; then
-  export XDG_CACHE_HOME=/tmp/jackmab1-cache/
-  [ -d $XDG_CACHE_HOME ] || mkdir $XDG_CACHE_HOME
-fi
 
 source ~/bin/liquidprompt
 
@@ -63,16 +56,13 @@ alias bashrc="source ~/.bashrc"
 alias webserver="python -m SimpleHTTPServer 8080"
 alias trash=trash-put
 
-
 #tricks to quickly clone hosted git repos
 github-clone() {
   generic-git-clone "github.com" $* 
 }
-
 bitbucket-clone() {
   generic-git-clone "bitbucket.org" $* 
 }
-
 generic-git-clone() {
   host_domain=$1
   if [[ $# -lt 3 ]]; then
