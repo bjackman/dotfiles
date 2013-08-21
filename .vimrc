@@ -49,6 +49,11 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 colorscheme desert
 :au FocusLost * silent! wa
 
+function! Edk2()
+  call TabPolicy(2)
+  set ff=dos
+endfunction
+
 "CAPSLOCK
 "http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
