@@ -50,6 +50,7 @@ colorscheme desert
 :au FocusLost * silent! wa
 
 function! Edk2()
+  set textwidth=100
   call TabPolicy(2)
   set ff=dos
 endfunction
