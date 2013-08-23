@@ -84,7 +84,7 @@ update() {
   if [[ -f /etc/lsb-release ]]; then
     source /etc/lsb-release
     case $DISTRIB_ID in
-      "Ubuntu") sudo apt-get update && sudo apt-upgrade ;;
+      "Ubuntu") sudo apt-get update && sudo apt-get upgrade ;;
       "Fedora") sudo yum update ;;
     esac
   else
