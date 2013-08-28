@@ -74,3 +74,6 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 
 "go to normal mode with jj... AWESOME
 imap jj <Esc>
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
