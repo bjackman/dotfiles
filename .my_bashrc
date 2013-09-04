@@ -106,3 +106,10 @@ if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
 fi
 
+hex2dec() {
+  if [ -z `echo $* | grep 0x` ]; then
+    printf "%d\n" 0x$*
+  else
+    printf "%d\n" $*
+  fi
+}
