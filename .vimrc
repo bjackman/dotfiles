@@ -77,3 +77,6 @@ imap jj <Esc>
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
+
+"for camel case movement
+map w ,w
