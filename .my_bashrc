@@ -113,3 +113,13 @@ hex2dec() {
     printf "%d\n" $*
   fi
 }
+
+alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
+
+GERT=1000000000
+HISTFILESIZE = $GERT
+HISTSIZE = $GERT
+shopt -s histappend
+HISTCONTROL=ignoredups
+HISTIGNORE="ls:bg:fg:history"
+shopt -s cmdhist #squash multiline commands into one line (obviously..)
