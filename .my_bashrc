@@ -117,8 +117,8 @@ hex2dec() {
 alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
 
 GERT=1000000000
-HISTFILESIZE = $GERT
-HISTSIZE = $GERT
+HISTFILESIZE=$GERT
+HISTSIZE=$GERT
 shopt -s histappend
 HISTCONTROL=ignoredups
 HISTIGNORE="ls:bg:fg:history"
