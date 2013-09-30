@@ -85,3 +85,6 @@ map e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+
+"max number of tabs
+set tabpagemax=50
