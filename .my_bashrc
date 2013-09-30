@@ -114,6 +114,10 @@ hex2dec() {
   fi
 }
 
+dec2hex() {
+  printf "0x%x\n" $*
+}
+
 alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
 
 GERT=1000000000
@@ -122,4 +126,5 @@ HISTSIZE=$GERT
 shopt -s histappend
 HISTCONTROL=ignoredups
 HISTIGNORE="ls:bg:fg:history"
-shopt -s cmdhist #squash multiline commands into one line (obviously..)
+srmhopt -s cmdhist #squash multiline commands into one line (obviously..)
+export GREP_OPTIONS="--color=auto"
