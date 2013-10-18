@@ -119,6 +119,10 @@ dec2hex() {
   printf "0x%x\n" $*
 }
 
+filegrep() {
+  find . -name "$1" -exec grep -nH "$2" {} \;
+}
+
 # Mount a disk by label without root
 mnt() {
   label=$1
