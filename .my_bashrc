@@ -137,7 +137,7 @@ umnt() {
 
 alias proper_hexdump="hexdump -v -e '\"0x%08_ax \" 1/4 \"0x%08x\" \"\n\"'"
 memdiff() {
-  colordiff -y --suppress-common-lines <(proper_hexdump $1) <(proper_hexdump $2)
+  vimdiff <(proper_hexdump $1) <(proper_hexdump $2)
 }
 
 alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
