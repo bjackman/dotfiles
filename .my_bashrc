@@ -63,10 +63,10 @@ alias trash=trash-put
 
 #tricks to quickly clone hosted git repos
 github-clone() {
-  generic-git-clone "github.com" $* 
+  generic-git-clone "github.com" $*
 }
 bitbucket-clone() {
-  generic-git-clone "bitbucket.org" $* 
+  generic-git-clone "bitbucket.org" $*
 }
 generic-git-clone() {
   host_domain=$1
@@ -141,6 +141,8 @@ memdiff() {
 }
 
 alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
+
+alias git_add_no_whitespace="git diff -w --no-color \"$@\" | git apply --cached --ignore-whitespace"
 
 GERT=1000000000
 HISTFILESIZE=$GERT
