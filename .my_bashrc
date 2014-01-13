@@ -143,6 +143,14 @@ memdiff() {
 alias remove_trailing_whitespace="sed --in-place 's/[[:space:]]\+$//' "
 
 alias git_add_no_whitespace="git diff -w --no-color | git apply --cached --ignore-whitespace"
+git_undo_whitespace() {
+  git diff -w --no-color | git apply --cached --ignore-whitespace && \
+  git commit -m "tmp"                                             && \
+  git reset --hard HEAD                                           && \
+  git reset HEAD^
+}
+alias grhard="git reset --hard "
+
 
 GERT=1000000000
 HISTFILESIZE=$GERT
