@@ -150,6 +150,7 @@ git_undo_whitespace() {
   git reset HEAD^
 }
 alias grhard="git reset --hard "
+alias gcm="git commit -m "
 
 
 GERT=1000000000
