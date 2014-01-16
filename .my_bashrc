@@ -151,6 +151,8 @@ git_undo_whitespace() {
 }
 alias grhard="git reset --hard "
 alias gcm="git commit -m "
+alias gcam="git commit -am "
+alias gap="git add -p "
 
 
 GERT=1000000000
