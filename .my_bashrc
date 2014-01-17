@@ -154,6 +154,7 @@ alias gcm="git commit -m "
 alias gcam="git commit -am "
 alias gap="git add -p "
 
+alias fnd="find . -name "
 
 GERT=1000000000
 HISTFILESIZE=$GERT
