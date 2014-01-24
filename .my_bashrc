@@ -153,6 +153,7 @@ alias grhard="git reset --hard "
 alias gcm="git commit -m "
 alias gcam="git commit -am "
 alias gap="git add -p "
+alias gcamend="git commit --amend"
 
 alias fnd="find . -name "
 
