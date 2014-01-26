@@ -18,8 +18,8 @@ for file in .my_bashrc .vimrc; do
   link $file
 done
 
-if [[ ! -x ~/bin/liquidprompt ]]
+if [[ ! -x ~/bin/liquidprompt ]]; then
   echo "You need to install liquidprompt."
-  echo "run: github-clone https://github.com/nojhan/liquidprompt"
+  echo "https://github.com/nojhan/liquidprompt"
 fi
 source ~/.bashrc

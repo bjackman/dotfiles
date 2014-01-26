@@ -17,8 +17,6 @@ umask 073
 unset SSH_ASKPASS
 EDITOR="vim"
 
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
-
 extract () {
     if [ -f $1 ] ; then
       case $1 in
