@@ -14,7 +14,7 @@ function link {
   fi
 }
 
-for file in .my_bashrc .vimrc; do
+for file in .my_bashrc .vimrc .gdbinit; do
   link $file
 done
 
