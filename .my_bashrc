@@ -145,6 +145,8 @@ alias gcamend="git commit --amend"
 
 alias fnd="find . -name "
 
+alias gdb="gdb -q"
+
 GERT=1000000000
 HISTFILESIZE=$GERT
 HISTSIZE=$GERT
