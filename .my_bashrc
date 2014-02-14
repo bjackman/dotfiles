@@ -17,8 +17,6 @@ umask 073
 unset SSH_ASKPASS
 EDITOR="vim"
 
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
-
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -147,6 +145,8 @@ alias gcamend="git commit --amend"
 alias glog="git log --pretty=oneline -n "
 
 alias fnd="find . -name "
+
+alias gdb="gdb -q"
 
 GERT=1000000000
 HISTFILESIZE=$GERT
