@@ -1,3 +1,6 @@
+#don't need to do all this shit if we're not interactive
+tty -s || return
+
 #sets aliases for course exercise directories. (CS UoM)
 for course in `ls ~ | grep "^COMP"`
 do
