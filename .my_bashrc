@@ -146,6 +146,9 @@ alias gcam="git commit -am "
 alias gap="git add -p "
 alias gcamend="git commit --amend"
 alias glog="git log --pretty=oneline -n "
+find_define() {
+  filegrep "*.h" "#define\s*$1"
+}
 
 alias fnd="find . -name "
 
