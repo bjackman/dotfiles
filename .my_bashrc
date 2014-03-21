@@ -149,6 +149,9 @@ alias glog="git log --pretty=oneline -n "
 find_define() {
   filegrep "*.h" "#define\s*$1"
 }
+find_type() {
+  filegrep "*.h" "typedef.*$1"
+}
 
 alias fnd="find . -name "
 
