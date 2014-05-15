@@ -1,0 +1,12 @@
+{
+	"dictionary": "Packages/Language - English/en_GB.dic",
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80
+	],
+	"tabSize": 2,
+	"translateTabsToSpaces": true
+}

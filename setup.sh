@@ -16,7 +16,7 @@ function link {
   fi
 }
 
-for file in .vimrc .gdbinit; do
+for file in .vimrc .gdbinit .config/sublime-text-3; do
   link $file
 done
 

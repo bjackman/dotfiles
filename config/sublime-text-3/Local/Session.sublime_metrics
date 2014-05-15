@@ -1,0 +1,27 @@
+{
+	"licensed": false,
+	"packages":
+	[
+		"ARM Assembly",
+		"CTags",
+		"Jade",
+		"Package Control",
+		"ARM Assembly",
+		"CTags",
+		"Package Control",
+		"ARM Assembly",
+		"CTags",
+		"Jade",
+		"Package Control",
+		"ARM Assembly",
+		"CTags",
+		"Jade",
+		"Package Control"
+	],
+	"startup_sec": 0.662695,
+	"syntax":
+	{
+		"Shell-Unix-Generic": 20
+	},
+	"time": 1400158016
+}
