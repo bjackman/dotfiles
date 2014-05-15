@@ -7,6 +7,16 @@ unset SSH_ASKPASS
 
 EDITOR="vim"
 
+#sets aliases for course exercise directories. (CS UoM)
+for course in `ls ~ | grep "^COMP"`
+do
+  alias `echo $course | cut -c 5-7`="cd ~/$course"
+  for ex in `ls ~/$course | grep "^ex"`
+  do
+    alias `echo $course | sed -e s/COMP// | sed -e s/..$//``echo $ex | sed -e s/ex//`="cd ~/$course/$ex"
+  done
+done
+
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -123,6 +133,7 @@ alias gcam="git commit -am "
 alias gap="git add -p "
 alias gcamend="git commit --amend"
 alias glog="git log --pretty=oneline -n "
+alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase origin/$branch'
 
 ####################
 
