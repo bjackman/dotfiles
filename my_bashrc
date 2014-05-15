@@ -145,8 +145,8 @@ find_type() {
 }
 
 alias fnd="find . -name "
-
 alias gdb="gdb -q"
+which sublime || alias sublime="subl"
 
 GERT=1000000000
 HISTFILESIZE=$GERT
