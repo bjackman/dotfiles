@@ -16,8 +16,8 @@ function link {
   fi
 }
 
-for file in .vimrc .gdbinit .config/sublime-text-3; do
-  link $file
+for file in .vimrc .gdbinit .config/sublime-text-3 .config/awesome; do
+link $file
 done
 
 mkdir -vp ~/bin
