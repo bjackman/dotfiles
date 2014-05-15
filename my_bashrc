@@ -1,23 +1,10 @@
 #don't need to do all this shit if we're not interactive
 tty -s || return
 
-#sets aliases for course exercise directories. (CS UoM)
-for course in `ls ~ | grep "^COMP"`
-do
-  alias `echo $course | cut -c 5-7`="cd ~/$course"
-  for ex in `ls ~/$course | grep "^ex"`
-  do
-    alias `echo $course | sed -e s/COMP// | sed -e s/..$//``echo $ex | sed -e s/ex//`="cd ~/$course/$ex"
-  done
-done
-
-#hopefully sets default file permissions to allow the user "nobody" to
-#access files in public_html directory
-umask 073
-
 #SSH_ASKPASS holds `which gnome-ssh-askpass` by default. git calls this
 #graphical program even when running on a terminal (a bug). fix like this:
 unset SSH_ASKPASS
+
 EDITOR="vim"
 
 extract () {
@@ -43,22 +30,8 @@ extract () {
 
 source ~/bin/liquidprompt
 
-export PATH=${PATH}:~/.cabal/bin
 export PATH=${PATH}:~/bin
 export PATH=${PATH}:.
-
-#make gvim open all in the same window with tabs
-alias gvim="gvim --remote-tab"
-alias sshman="ssh jackmab1@rs0.cs.man.ac.uk"
-alias sshxman="ssh -CX jackmab1@rs0.cs.man.ac.uk"
-alias mount_sshfs="sshfs jackmab1@rs0.cs.man.ac.uk:/home/S11/jackmab1 ~/uni"
-#for the shitty pip package on fedora:
-alias pipinstall="pip-python install -U --install-option=--user pip"
-alias rm_firefox_lock="rm ~/.mozilla/firefox/*/.parentlock"
-alias clbin="curl -F 'clbin=<-' https://clbin.com"
-alias bashrc="source ~/.bashrc"
-alias webserver="python -m SimpleHTTPServer 8080"
-alias trash=trash-put
 
 #tricks to quickly clone hosted git repos
 github-clone() {
