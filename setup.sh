@@ -16,15 +16,10 @@ function link {
   fi
 }
 
-for file in .vimrc .gdbinit .config/sublime-text-3 .config/awesome; do
-link $file
+for file in .vimrc .gdbinit .config/sublime-text-3 .config/awesome bin/*; do
+  link $file
 done
 
 mkdir -vp ~/bin
-
-#TODO probably need to `git submodule init` or something
-if [[ ! -x ~/bin/liquidprompt ]]; then
-  ln -s ${dotfiles_dir}/liquidprompt/liquidprompt ~/bin/liquidprompt 
-fi
 
 source ~/.bashrc
