@@ -16,7 +16,7 @@ function link {
   fi
 }
 
-for file in .vimrc .gdbinit .config/sublime-text-3 .config/awesome bin/*; do
+for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome bin/*; do
   link $file
 done
 
