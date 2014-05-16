@@ -12,8 +12,6 @@ require("debian.menu")
 
 require("os")
 
-require("blingbling")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -147,13 +145,6 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
-udisks_glue=blingbling.udisks_glue.new(beautiful.dialog_ok)
-udisks_glue:set_mount_icon(beautiful.dialog_ok)
-udisks_glue:set_umount_icon(beautiful.dialog_cancel)
-udisks_glue:set_detach_icon(beautiful.dialog_cancel)
-udisks_glue:set_Usb_icon(beautiful.usb_icon)
-udisks_glue:set_Cdrom_icon(beautiful.cdrom_icon)
- 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })

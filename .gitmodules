@@ -1,9 +1,3 @@
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = git@github.com:nojhan/liquidprompt.git
-[submodule "config/awesome/blingbling"]
-	path = config/awesome/blingbling
-	url = git://github.com/cedlemo/blingbling.git
-[submodule "udisks-glue"]
-	path = udisks-glue
-	url = git@github.com:fernandotcl/udisks-glue.git
