@@ -1,0 +1,3 @@
+#!/bin/bash
+# arguments: app_name, replaces_id, app_icon, summary, body, (actions (?), hints,) expire_timeout
+dbus-send --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.Notify string:$1 uint32:$2 string:$3 string:$4 string:$5 array:string: array:string: int32:${6--1}
