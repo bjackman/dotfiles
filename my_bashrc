@@ -6,6 +6,7 @@ tty -s || return
 unset SSH_ASKPASS
 
 EDITOR="vim"
+GRAPHICAL_EDITOR="sublime --new-window"
 
 #sets aliases for course exercise directories. (CS UoM)
 for course in `ls ~ | grep "^COMP"`
@@ -63,18 +64,19 @@ generic-git-clone() {
 }
 
 #distro non-specific update
-update() {
-  if [[ -f /etc/lsb-release ]]; then
-    source /etc/lsb-release
-    case $DISTRIB_ID in
-      "Ubuntu") sudo apt-get update && sudo apt-get upgrade ;;
-      "Fedora") sudo yum update ;;
-    esac
-  else
-    echo "No /etc/lsb-release."
-    return 1
-  fi
-}
+if [[ -f /etc/lsb-release ]]; then
+  source /etc/lsb-release
+  case $DISTRIB_ID in
+    "Ubuntu")
+      alias update="sudo apt-get update && sudo apt-get upgrade"
+      alias install="sudo apt-get install "
+      ;;
+    "Fedora")
+      alias update="sudo yum update"
+      alias install="sudo yum install "
+      ;;
+  esac
+fi
 
 newdir() {
   mkdir $1
@@ -133,7 +135,7 @@ alias gcam="git commit -am "
 alias gap="git add -p "
 alias gcamend="git commit --amend"
 alias glog="git log --pretty=oneline -n "
-alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase origin/$branch'
+alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase -i origin/$branch'
 
 ####################
 
@@ -147,6 +149,10 @@ find_type() {
 alias fnd="find . -name "
 alias gdb="gdb -q"
 which sublime || alias sublime="subl"
+alias bashrc="source ~/.bashrc"
+alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
+
+alias disassemble='${CROSS_COMPILE}objdump -d '
 
 GERT=1000000000
 HISTFILESIZE=$GERT
