@@ -2,5 +2,5 @@
 # Be careful, I guess.
 set auto-load safe-path /
 
-source ~/dotfiles/colors.gdb
+# source ~/dotfiles/colors.gdb
 
