@@ -1,6 +1,13 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"auto_match_enabled": false,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/Flatland Dark (SL).tmTheme",
+	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
+	"draw_white_space": "selection",
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 	],
@@ -9,6 +16,9 @@
 	[
 		80
 	],
-	"tabSize": 2,
-	"translateTabsToSpaces": true
+	"tab_size": 2,
+	"theme": "Flatland Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_whitespace_on_save": true,
+	"use_tab_stops": true
 }
