@@ -19,7 +19,7 @@ function link {
 mkdir -vp ~/bin
 
 for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome \
-    bin/* .conkyrc; do
+    bin/* .conkyrc .screenrc; do
   link $file
 done
 
