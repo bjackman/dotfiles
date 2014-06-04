@@ -18,7 +18,8 @@ function link {
 
 mkdir -vp ~/bin
 
-for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome bin/*; do
+for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome \
+    bin/* .conkyrc; do
   link $file
 done
 
