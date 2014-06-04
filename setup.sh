@@ -23,4 +23,26 @@ for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome \
   link $file
 done
 
+install_crontab() {
+  crontab -r
+  crontab ${dotfiles_dir}/cron.tab
+  echo "Crontab installed."
+}
+
+echo "Installing crontab."
+current_crontab=$(crontab -l)
+if [ ! -z "$current_crontab" ]; then
+  echo "A crontab is already installed:"
+  echo
+  crontab -l
+  echo
+  read -p "Delete crontab and install mine? [y/N]" DEL
+  case "$DEL" in
+    y|Y|yes ) install_crontab ;;
+    * ) ;;
+  esac
+else
+  install_crontab
+fi
+
 source ~/.bashrc
