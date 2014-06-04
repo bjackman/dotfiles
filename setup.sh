@@ -16,10 +16,10 @@ function link {
   fi
 }
 
+mkdir -vp ~/bin
+
 for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome bin/*; do
   link $file
 done
-
-mkdir -vp ~/bin
 
 source ~/.bashrc
