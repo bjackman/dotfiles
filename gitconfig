@@ -12,3 +12,5 @@
 	mnemonicprefix = true
 [help]
 	autocorrect = 3
+[color]
+	ui = true
