@@ -157,6 +157,7 @@ alias gdb="gdb -q"
 which sublime || alias sublime="subl"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
+alias trash="trash-put"
 
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
