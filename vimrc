@@ -80,3 +80,6 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 
 "max number of tabs
 set tabpagemax=50
+
+"for some reason this isn't on by default in Debian
+syntax on
