@@ -16,10 +16,8 @@ function link {
   fi
 }
 
-mkdir -vp ~/bin
-
 for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome \
-    bin/* .conkyrc .screenrc; do
+    .conkyrc .screenrc; do
   link $file
 done
 

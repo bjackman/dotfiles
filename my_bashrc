@@ -39,10 +39,14 @@ extract () {
      fi
 }
 
-source ~/bin/liquidprompt
+source ~/dotfiles/bin/liquidprompt
 
-export PATH=${PATH}:~/bin
+export PATH=${PATH}:dotfiles/bin
+export PATH=${PATH}:~/.local/bin
 export PATH=${PATH}:.
+export PATH=${PATH}:/opt/teaching/bin:/opt/common/bin/
+
+export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
 
 #tricks to quickly clone hosted git repos
 github-clone() {
@@ -154,7 +158,7 @@ find_type() {
 
 alias fnd="find . -name "
 alias gdb="gdb -q"
-which sublime || alias sublime="subl"
+which sublime > /dev/null || alias sublime="subl"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
