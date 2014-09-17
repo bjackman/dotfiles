@@ -165,7 +165,7 @@ find_type() {
 
 alias fnd="find . -name "
 alias gdb="gdb -q"
-which sublime > /dev/null || alias sublime="subl"
+which sublime 2>&1 > /dev/null || alias sublime="subl"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
