@@ -39,7 +39,14 @@ extract () {
      fi
 }
 
-source ~/dotfiles/bin/liquidprompt
+prompt_script=~/dotfiles/bin/liquidprompt
+
+# Per-machine configz
+if [ -f ~/dotfiles/local.sh ]; then
+  source ~/dotfiles/local.sh
+fi
+
+source $prompt_script
 
 export PATH=${PATH}:dotfiles/bin
 export PATH=${PATH}:~/.local/bin
