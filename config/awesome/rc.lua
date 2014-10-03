@@ -90,6 +90,19 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+
+batterywidget = widget({ type = "textbox" })
+batterywidget.text = " | Battery | "
+batterywidgettimer = timer({ timeout = })
+batterywidgettimer:add_signal("timeout",
+  function()
+    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+    batterywidget.text = " |" .. fh:read("*l") .. " | "
+    fh:close()
+  end
+)
+batterywidgettimer:start()
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
@@ -173,6 +186,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        batterywidget,
         mysystray,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
