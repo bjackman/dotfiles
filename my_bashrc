@@ -5,8 +5,8 @@ tty -s || return
 #graphical program even when running on a terminal (a bug). fix like this:
 unset SSH_ASKPASS
 
-EDITOR="vim"
-GRAPHICAL_EDITOR="sublime --new-window"
+export EDITOR=`which vim`
+export GRAPHICAL_EDITOR="sublime --new-window"
 
 #sets aliases for course exercise directories. (CS UoM)
 for course in `ls ~ | grep "^COMP"`

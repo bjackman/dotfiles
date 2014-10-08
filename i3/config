@@ -21,7 +21,7 @@ floating_modifier $mod
 bindsym $mod+Return exec /usr/bin/gnome-terminal
 
 # Lock screen
-bindsym $mod+l exec xlock -timeelapsed
+bindsym $mod+Shift+l exec xlock -timeelapsed
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -91,8 +91,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod+Left  workspace next
-bindsym $mod+Right workspace prev
+bindsym $mod+Left  workspace prev
+bindsym $mod+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
