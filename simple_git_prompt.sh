@@ -79,6 +79,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=yes
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=yes
 
-PROMPT_COMMAND='__git_ps1 "[\[$BWhite\]\w\[$Color_Off\]" "]\[$BWhite\]$ \[$Color_Off\]"'
+PROMPT_COMMAND='__git_ps1 "[\[$BBlue\]\h \[$BWhite\]\w\[$Color_Off\]" "]\[$BWhite\]$ \[$Color_Off\]"'
+
 
 #PS1="[\[$BWhite\]\w\[$Color_Off\]-\$(git_bit)]\[$BWhite\]$ \[$Color_Off\]"
