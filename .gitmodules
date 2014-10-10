@@ -4,3 +4,6 @@
 [submodule "config/awesome/awesome-freedesktop"]
 	path = config/awesome/awesome-freedesktop
 	url = git@github.com:terceiro/awesome-freedesktop.git
+[submodule "config/sublime-text-3/Packages/Sublime-ARM-Assembly"]
+	path = config/sublime-text-3/Packages/Sublime-ARM-Assembly
+	url = https://github.com/erggo/Sublime-ARM-Assembly.git
