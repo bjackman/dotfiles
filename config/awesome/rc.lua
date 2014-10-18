@@ -93,11 +93,14 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 batterywidget = widget({ type = "textbox" })
 batterywidget.text = " | Battery | "
-batterywidgettimer = timer({ timeout = })
+batterywidgettimer = timer({ timeout = 5 })
 batterywidgettimer:add_signal("timeout",
   function()
     fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
-    batterywidget.text = " |" .. fh:read("*l") .. " | "
+    t = fh:read("*l")
+    if t then
+      batterywidget.text = " |" .. t .. " | "
+    end
     fh:close()
   end
 )
