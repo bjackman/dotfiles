@@ -171,6 +171,7 @@ which sublime 2>&1 > /dev/null || alias sublime="subl"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
+alias webserver="python -m SimpleHTTPServer 8080 "
 
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
