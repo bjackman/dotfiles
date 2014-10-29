@@ -1,0 +1,2 @@
+set imap_pass=`pass gmail`
+set spoolfile="imaps://bhenryj0117@smtp.gmail.com"
