@@ -80,7 +80,7 @@ if [[ -f /etc/lsb-release ]]; then
   case $DISTRIB_ID in
     "Ubuntu")
       alias update="sudo apt-get update && sudo apt-get upgrade"
-      alias install="sudo apt-get install "
+      alias install="sudo apt-get install -y "
       ;;
     "Fedora")
       alias update="sudo yum update"
@@ -90,7 +90,7 @@ if [[ -f /etc/lsb-release ]]; then
 else
   if [[ -f /etc/lsb-release-crunchbang ]]; then
     alias update="sudo apt-get update && sudo apt-get upgrade"
-    alias install="sudo apt-get install "
+    alias install="sudo apt-get install -y "
   fi
 fi
 
@@ -127,6 +127,8 @@ umnt() {
   shift
   udisks --unmount /dev/disk/by-label/$label $*
 }
+
+alias sshman="ssh mbax9bj2@kilburn.cs.manchester.ac.uk"
 
 alias proper_hexdump="hexdump -v -e '\"0x%08_ax \" 1/4 \"0x%08x\" \"\n\"'"
 memdiff() {
@@ -169,6 +171,7 @@ which sublime 2>&1 > /dev/null || alias sublime="subl"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
+alias webserver="python -m SimpleHTTPServer 8080 "
 
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
