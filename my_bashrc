@@ -152,6 +152,7 @@ alias grhard="git reset --hard "
 alias gcm="git commit -m "
 alias gcam="git commit -am "
 alias gap="git add -p "
+alias gcp="git checkout -p "
 alias gcamend="git commit --amend"
 alias glog="git log --pretty=oneline -n "
 alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase -i origin/$branch'
