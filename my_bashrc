@@ -128,7 +128,8 @@ umnt() {
   udisks --unmount /dev/disk/by-label/$label $*
 }
 
-alias sshman="ssh mbax9bj2@kilburn.cs.manchester.ac.uk"
+export MANC="mbax9bj2@kilburn.cs.manchester.ac.uk"
+alias sshman="ssh $MANC"
 
 alias proper_hexdump="hexdump -v -e '\"0x%08_ax \" 1/4 \"0x%08x\" \"\n\"'"
 memdiff() {
