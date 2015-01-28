@@ -3,6 +3,7 @@
 	name = Brendan Jackman
 [core]
 	editor = vim
+	preloadindex = true
 [push]
 	default = upstream
 [alias]
