@@ -1,40 +1,52 @@
 (require 'package)
+
 (push '("marmalade" . "http://marmalade-repo.org/packages/")
       package-archives )
 (push '("melpa" . "http://melpa.milkbox.net/packages/")
       package-archives)
 
-(package-initialize)
+(setq package-list '(helm-projectile projectile f s cider clojure-mode
+                     color-theme-monokai color-theme-solarized color-theme dash evil
+                     goto-chg helm async magit git-rebase-mode git-commit-mode
+                     markdown-mode pandoc-mode pkg-info epl queue undo-tree))
 
-(require 'evil)
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (evil-mode 1)
 
-(require 'helm-config)
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 (defun find-tag-at-point ()
   (interactive)
   (find-tag (thing-at-point 'symbol)))
-(global-set-key (kbd "C-x p") 'find-tag-at-point)
+(defun find-tag-at-point-other-window ()
+  (interactive)
+  (find-tag-other-window (thing-at-point 'symbol)))
+(global-set-key (kbd "C-x t") 'find-tag-at-point-other-window)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-everywhere t)
-;; (ido-mode 1)
-
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key (kbd "C-x C-h") 'projectile-find-other-file)
+(global-set-key (kbd "C-x C-p") 'projectile-find-file)
+
 (blink-cursor-mode 0)
-(linum-mode 1)
+
+(add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
 
 ;; probably won't use this..
 (defun run-on-current-file (cmd)
   "Run a command, replacing %s with the name of the current buffer's file"
   (interactive "s")
-  (shell-command 
-  (format cmd 
+  (shell-command
+  (format cmd
     (shell-quote-argument (buffer-file-name)))))
 
 ;; Enable pandoc mode when editing markdown
@@ -73,7 +85,7 @@
 (setq-default evil-cross-lines t)
 
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (load-file "~/.emacs")))
- 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
