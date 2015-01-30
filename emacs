@@ -17,6 +17,25 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; because fuck typing 3 whole characters
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; so that dotfiles/emacs gets opened as emacs lisp
+(setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
+
+;; open .emacs
+(global-set-key (kbd "C-x e") (lambda () (interactive) (find-file user-init-file)))
+
+;; enable saving recent files
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 15)
+(recentf-mode +1)
+
+;; C-k usually kills a line but we are Evil so let's bind it to
+;; quickly killing a buffer (without asking yes or no)
+(global-set-key (kbd "C-k") (lambda () (interactive) (kill-buffer (buffer-name))))
+
 (evil-mode 1)
 
 (helm-mode 1)
