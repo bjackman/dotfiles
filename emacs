@@ -12,6 +12,8 @@
                      git-commit-mode markdown-mode pandoc-mode
                      pkg-info epl queue undo-tree flycheck tabbar-ruler helm-gtags))
 
+(global-visual-line-mode t)
+
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
