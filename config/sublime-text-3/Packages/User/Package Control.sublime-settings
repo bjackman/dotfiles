@@ -1,10 +1,14 @@
 {
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"ARM Assembly",
 		"CTags",
 		"Git",
 		"GitGutter",
-		"Jade"
+		"Jade",
+		"Package Control"
 	]
 }
