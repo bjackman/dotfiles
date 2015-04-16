@@ -151,6 +151,13 @@
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
 
+(require 'tex-mode)
+(defun latex-word-count ()
+  (interactive)
+  (shell-command (concat "texcount '" (buffer-file-name) "'")))
+(define-key latex-mode-map "\C-cw" 'latex-word-count)
+
+
 ;; Evil: Make movement keys use soft lines instead of hard
 (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
