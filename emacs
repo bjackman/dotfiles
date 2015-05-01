@@ -21,6 +21,8 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+
+(setq inhibit-startup-message t)
 ;; because fuck typing 3 whole characters
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -156,6 +158,7 @@
   (interactive)
   (shell-command (concat "texcount '" (buffer-file-name) "'")))
 (define-key latex-mode-map "\C-cw" 'latex-word-count)
+(add-hook 'tex-mode-hook 'pandoc-mode)
 
 
 ;; Evil: Make movement keys use soft lines instead of hard
