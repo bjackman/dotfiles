@@ -39,7 +39,7 @@ extract () {
      fi
 }
 
-prompt_script=~/dotfiles/bin/liquidprompt
+prompt_script=~/dotfiles/simple_git_prompt.sh
 
 # Per-machine configz
 if [ -f ~/dotfiles/local.sh ]; then
