@@ -1,6 +1,6 @@
 dotfiles_dir=$(readlink -f $(dirname $0))
 
-if [[ -n `grep "my_bashrc" ~/.bashrc` ]]; then
+if [[ -n `grep "${dotfiles_dir}/my_bashrc" ~/.bashrc` ]]; then
   echo "bashrc already sources my_bashrc"
 else
   echo "adding 'source ${dotfiles_dir}/my_bashrc' to ~/.bashrc"
