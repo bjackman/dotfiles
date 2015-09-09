@@ -96,6 +96,8 @@
 
 ;; disable Evil mode in git rebase mode (which has its own bindings)
 (add-hook 'git-rebase-mode-hook '(lambda () (evil-mode 0)))
+(add-hook 'dired-mode-hook '(lambda () (evil-mode 0)))
+
 ;; probably won't use this..
 (defun run-on-current-file (cmd)
   "Run a command, replacing %s with the name of the current buffer's file"
@@ -159,7 +161,7 @@
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)k
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
