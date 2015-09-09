@@ -178,6 +178,8 @@ alias webserver="python -m SimpleHTTPServer 8080 "
 
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
+alias ls="ls --color=auto "
+
 GERT=1000000000
 HISTFILESIZE=$GERT
 HISTSIZE=$GERT
