@@ -7,7 +7,8 @@
 
 (setq package-list '(helm-projectile projectile f s
                      color-theme-monokai solarized-theme color-theme
-                     evil async magit tabbar-ruler helm-gtags))
+                     evil async magit tabbar-ruler helm-gtags
+                     buffer-move))
 
 (global-visual-line-mode t)
 
@@ -154,6 +155,11 @@
 (setq-default evil-cross-lines t)
 
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (load-file "~/.emacs")))
+
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)k
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
