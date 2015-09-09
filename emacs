@@ -8,7 +8,7 @@
 (setq package-list '(helm-projectile projectile f s
                      color-theme-monokai solarized-theme color-theme
                      evil async magit tabbar-ruler helm-gtags
-                     buffer-move))
+                     buffer-move dired-subtree))
 
 (global-visual-line-mode t)
 
@@ -163,6 +163,9 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
+(define-key dired-mode-map (kbd "i") 'dired-subtree-insert)
+(define-key dired-mode-map (kbd "k") 'dired-subtree-remove)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -181,4 +184,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(dired-subtree-depth-1-face ((t nil)))
+ '(dired-subtree-depth-2-face ((t nil)))
+ '(dired-subtree-depth-3-face ((t nil)))
+ '(dired-subtree-depth-4-face ((t nil)))
+ '(dired-subtree-depth-5-face ((t nil)))
+ '(dired-subtree-depth-6-face ((t nil))))
