@@ -5,12 +5,10 @@
 (push '("melpa" . "http://melpa.milkbox.net/packages/")
       package-archives)
 
-(setq package-list '(helm-projectile projectile f s cider
-                     clojure-mode color-theme-monokai
-                     color-theme-solarized color-theme dash evil
-                     goto-chg helm async magit git-rebase-mode
-                     git-commit-mode markdown-mode pandoc-mode
-                     pkg-info epl queue undo-tree flycheck tabbar-ruler helm-gtags))
+(setq package-list '(helm-projectile projectile f s
+                     color-theme-monokai
+                     solarized-theme color-theme evil
+                     async magit tabbar-ruler helm-gtags))
 
 (global-visual-line-mode t)
 
@@ -177,7 +175,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(c-default-style (quote ((java-mode . "java"))))
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(ede-project-directories (quote ("/home/brendan/little")))
  '(indent-tabs-mode nil)
  '(require-final-newline t)
@@ -188,5 +188,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(load-theme 'solarized-dark)
