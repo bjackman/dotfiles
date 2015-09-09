@@ -94,9 +94,9 @@
 
 (add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
 
-;; disable Evil mode in git rebase mode (which has its own bindings)
-(add-hook 'git-rebase-mode-hook '(lambda () (evil-mode 0)))
-(add-hook 'dired-mode-hook '(lambda () (evil-mode 0)))
+;; disable Evil mode in some modes
+(evil-set-initial-state 'git-rebase-mode 'emacs)
+(evil-set-initial-state 'dired-mode 'emacs)
 
 ;; probably won't use this..
 (defun run-on-current-file (cmd)
