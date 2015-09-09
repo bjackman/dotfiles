@@ -17,7 +17,7 @@ function link {
 }
 
 for file in .gitconfig .vimrc .gdbinit .config/sublime-text-3 .config/awesome \
-    .conkyrc .screenrc .i3 .muttrc .emacs; do
+    .conkyrc .screenrc .i3 .muttrc .emacs .tmux.conf; do
   link $file
 done
 
