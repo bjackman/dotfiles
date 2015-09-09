@@ -6,9 +6,8 @@
       package-archives)
 
 (setq package-list '(helm-projectile projectile f s
-                     color-theme-monokai
-                     solarized-theme color-theme evil
-                     async magit tabbar-ruler helm-gtags))
+                     color-theme-monokai solarized-theme color-theme
+                     evil async magit tabbar-ruler helm-gtags))
 
 (global-visual-line-mode t)
 
@@ -59,9 +58,6 @@
 (evil-mode 1)
 (column-number-mode 1)
 
-(setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
-
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
@@ -73,16 +69,6 @@
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-
-;; the following is hopefully obsoleted by helm-gtags
-;; navigate to the definition of the symbol at point.
-;; use C-u C-space to go back
-;; (defun find-tag-at-point ()
-;;   (interactive)
-;;   (find-tag (thing-at-point 'symbol)))
-;; (defun find-tag-at-point-other-window ()
-;;   (interactive)
-;;   (find-tag-other-window (thing-at-point 'symbol)))
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
