@@ -6,17 +6,7 @@ tty -s || return
 unset SSH_ASKPASS
 
 export EDITOR=`which vim`
-export GRAPHICAL_EDITOR="sublime --new-window"
-
-#sets aliases for course exercise directories. (CS UoM)
-for course in `ls ~ | grep "^COMP"`
-do
-  alias `echo $course | cut -c 5-7`="cd ~/$course"
-  for ex in `ls ~/$course | grep "^ex"`
-  do
-    alias `echo $course | sed -e s/COMP// | sed -e s/..$//``echo $ex | sed -e s/ex//`="cd ~/$course/$ex"
-  done
-done
+export GRAPHICAL_EDITOR="emacsclient"
 
 extract () {
     if [ -f $1 ] ; then
@@ -39,19 +29,11 @@ extract () {
      fi
 }
 
-prompt_script=~/dotfiles/simple_git_prompt.sh
-
-# Per-machine configz
-if [ -f ~/dotfiles/local.sh ]; then
-  source ~/dotfiles/local.sh
-fi
-
-source $prompt_script
+source ~/dotfiles/simple_git_prompt.sh
 
 export PATH=${PATH}:~/dotfiles/bin
 export PATH=${PATH}:~/.local/bin
 export PATH=${PATH}:.
-export PATH=${PATH}:/opt/teaching/bin:/opt/common/bin/
 
 export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
 
@@ -129,9 +111,6 @@ umnt() {
   udisks --unmount /dev/disk/by-label/$label $*
 }
 
-export MANC="mbax9bj2@kilburn.cs.manchester.ac.uk"
-alias sshman="ssh $MANC"
-
 alias proper_hexdump="hexdump -v -e '\"0x%08_ax \" 1/4 \"0x%08x\" \"\n\"'"
 memdiff() {
   vimdiff <(proper_hexdump $1) <(proper_hexdump $2)
@@ -150,13 +129,13 @@ git_undo_whitespace() {
   git reset --hard HEAD                                           && \
   git reset HEAD^
 }
+
 alias grhard="git reset --hard "
 alias gcm="git commit -m "
 alias gcam="git commit -am "
 alias gap="git add -p "
 alias gcp="git checkout -p "
 alias gcamend="git commit --amend"
-alias glog="git log --pretty=oneline -n "
 alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase -i origin/$branch'
 
 ####################
@@ -176,7 +155,7 @@ alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
 alias webserver="python -m SimpleHTTPServer 8080 "
-
+alias em="emacsclient -n"
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "

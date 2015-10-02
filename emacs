@@ -8,7 +8,7 @@
 (setq package-list '(helm-projectile projectile f s
                      color-theme-monokai solarized-theme color-theme
                      evil async magit tabbar-ruler helm-gtags
-                     buffer-move dired-subtree))
+                     buffer-move dired-subtree guide-key))
 
 (global-visual-line-mode t)
 
@@ -28,9 +28,9 @@
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
 
 ;; open .emacs
-(global-set-key (kbd "C-x e") (lambda () (interactive) (find-file user-init-file)))
+(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file user-init-file)))
 
-(global-set-key (kbd "C-x i") 'imenu)
+(global-set-key (kbd "C-c i") 'imenu)
 
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
@@ -43,7 +43,7 @@
             (setq beg (region-beginning) end (region-end))
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
-(global-set-key (kbd "C-x /") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C-c /") 'comment-or-uncomment-region-or-line)
 
 ;; enable saving recent files
 (require 'recentf)
@@ -71,32 +71,40 @@
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c m b") 'magit-blame)
+(global-set-key (kbd "C-c m b") 'magit-blame)
+(global-set-key (kbd "C-c q") 'magit-blame-quit)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(projectile-mode 1)
+(projectile-global-mode)
 (setq projectile-enable-caching t)
-(global-set-key (kbd "C-x C-h") 'projectile-find-other-file-other-window)
-(global-set-key (kbd "C-x C-p") 'projectile-find-file-other-window)
 (setq compilation-read-command nil)
-(global-set-key (kbd "C-x c") 'projectile-compile-project)
-
 
 (blink-cursor-mode 0)
 
+(setq projectile-switch-project-action 'neotree-projectile-action)
+(global-set-key (kbd "C-c n") (lambda () (interactive)
+                                                (neotree-toggle)
+                                                 (projectile-project-root)))
+
+
+; Nope: projectile-run-shell-command-in-root doesn't take an argument
+(define-key projectile-mode-map (kbd "C-c p d")
+  (lambda () (interactive)
+    (projectile-run-shell-command-in-root "make clean")))
+
 ;; clean whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(add-hook 'projectile-find-file-hook
-  '(lambda () (setq compile-command
-    (concat "make -C " (projectile-get-project-directories)))))
 
 (add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
 
 ;; disable Evil mode in some modes
 (evil-set-initial-state 'git-rebase-mode 'emacs)
 (evil-set-initial-state 'dired-mode 'emacs)
+(evil-set-initial-state 'neotree-mode 'emacs)
+(evil-set-initial-state 'magit-blame-mode 'emacs)
 
 ;; probably won't use this..
 (defun run-on-current-file (cmd)
@@ -109,7 +117,6 @@
 ;; Live syntax checking for c
 ;;(add-hook 'c-mode-hook 'flycheck-mode)
 
-(setq-default c-basic-offset 2)
 (require 'cc-mode)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 
@@ -156,7 +163,7 @@
 ; Make horizontal movement cross lines (not sure what that means tbh)
 (setq-default evil-cross-lines t)
 
-(global-set-key (kbd "C-x C-r") (lambda () (interactive) (load-file "~/.emacs")))
+(global-set-key (kbd "C-c C-r") (lambda () (interactive) (load-file "~/.emacs")))
 
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
@@ -165,28 +172,67 @@
 
 (define-key dired-mode-map (kbd "i") 'dired-subtree-insert)
 (define-key dired-mode-map (kbd "k") 'dired-subtree-remove)
+(define-key dired-mode-map (kbd "^") 'dired-subtree-up)
+
+(setq guide-key/guide-key-sequence '("C-c p"))
+(guide-key-mode 1)
+
+; Maximise on startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+; Don't ask before following symlinks to source controlled files
+(setq vc-follow-symlinks t)
+
+(defun kill-other-buffers ()
+    "Kill all buffers except the current one."
+    (interactive)
+    (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+(global-set-key (kbd "C-c a") 'align-regexp)
+(global-set-key (kbd "C-c r") 'revert-buffer)
+
+; Show file path in frame title
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b | Emacs"))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(c-default-style (quote ((java-mode . "java"))))
+ '(c-block-comment-prefix "* ")
+ '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk"))))
+ '(c-offsets-alist (quote ((statement-cont . c-lineup-assignments))))
+ '(c-tab-always-indent nil)
+ '(compilation-always-kill t)
+ '(compilation-auto-jump-to-first-error t)
+ '(compilation-scroll-output (quote first-error))
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(delete-trailing-lines nil)
  '(ede-project-directories (quote ("/home/brendan/little")))
  '(indent-tabs-mode nil)
  '(require-final-newline t)
- '(standard-indent 2))
+ '(safe-local-variable-values
+   (quote
+    ((projectile-project-compilation-cmd . "make PLATFORM=armstrong MODE=debug TOOLCHAIN=GCC GCC32_TOOLCHAIN=arm-none-eabi-")
+     (c-block-comment-prefix . "* ")
+     (c-basic-ofsset . 4)
+     (projectile-project-compilation-cmd . "make PLATFORM=buzz_testbench MODE=debug TOOLCHAIN=GCC GCC32_TOOLCHAIN=arm-none-eabi-"))))
+ '(standard-indent 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(dired-subtree-depth-1-face ((t nil)))
- '(dired-subtree-depth-2-face ((t nil)))
- '(dired-subtree-depth-3-face ((t nil)))
- '(dired-subtree-depth-4-face ((t nil)))
- '(dired-subtree-depth-5-face ((t nil)))
- '(dired-subtree-depth-6-face ((t nil))))
+ '(dired-subtree-depth-1-face ((t (:background "gray90"))))
+ '(dired-subtree-depth-2-face ((t (:background "gray80"))))
+ '(dired-subtree-depth-3-face ((t (:background "gray70"))))
+ '(dired-subtree-depth-4-face ((t (:background "gray60"))))
+ '(dired-subtree-depth-5-face ((t (:background "gray50"))))
+ '(dired-subtree-depth-6-face ((t (:background "gray40")))))
+
+(load-theme 'solarized-dark)

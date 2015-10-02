@@ -1,5 +1,5 @@
 [user]
-	email = bhenryj0117@gmail.com
+	email = brendan.jackman@arm.com
 	name = Brendan Jackman
 [core]
 	editor = vim
@@ -7,7 +7,11 @@
 [push]
 	default = upstream
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit master^..HEAD
+	lg2 = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20
+	lgn = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 
+  rbm = rebase -i master
+  
 [diff]
 	renames = copies
 	mnemonicprefix = true
@@ -17,3 +21,7 @@
 	ui = true
 [rebase]
 	autosquash = true
+[branch]
+	autosetuprebase = always
+[gitreview]
+	remote = origin

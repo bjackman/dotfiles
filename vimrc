@@ -7,7 +7,7 @@ nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>")
 let &cpo=s:cpo_save
 unlet s:cpo_save
 
-set textwidth=80
+"set textwidth=80
 set number
 set autoindent
 set backspace=indent,eol,start
