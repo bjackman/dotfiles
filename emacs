@@ -197,6 +197,9 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b | Emacs"))))
 
+; Don't open another stupid frame in stupid ediff
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
