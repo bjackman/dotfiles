@@ -142,10 +142,10 @@ alias gcf="git clean -f "
 alias gc="git checkout "
 alias gcb="git checkout -b"
 alias gcp="git checkout -p "
-alias grebase='branch=$(basename $(git symbolic-ref HEAD)); git rebase -i origin/$branch'
+alias grebase='git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
 alias grhard="git reset --hard "
 # Stay on the same commit, but with a floating HEAD
-alias gfloat="git checkout $(git rev-parse HEAD)"
+alias gfloat='git checkout $(git rev-parse HEAD)'
 
 ####################
 
