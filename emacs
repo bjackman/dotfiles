@@ -239,3 +239,4 @@
  '(dired-subtree-depth-6-face ((t (:background "gray40")))))
 
 (load-theme 'solarized-dark)
+(server-start)
