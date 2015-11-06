@@ -84,7 +84,7 @@
 
 (blink-cursor-mode 0)
 
-(setq projectile-switch-project-action 'neotree-projectile-action)
+;(setq projectile-switch-project-action 'neotree-projectile-action)
 (global-set-key (kbd "C-c n") (lambda () (interactive)
                                                 (neotree-toggle)
                                                  (projectile-project-root)))
