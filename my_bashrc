@@ -147,6 +147,28 @@ alias grhard="git reset --hard "
 # Stay on the same commit, but with a floating HEAD
 alias gfloat='git checkout $(git rev-parse HEAD)'
 
+pretty_log_args="--color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+lg() {
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+    if [[ $1 != "" ]]; then
+        if git rev-parse $1 &>/dev/null; then
+            base_arg=$1..HEAD
+        else
+            base_arg="-n $1"
+        fi
+    else
+        if [ $current_branch == "master" ]; then
+            base_arg="-n 30"
+        else
+            base_arg=master^..HEAD
+        fi
+    fi
+
+    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $base_arg
+}
+
 ####################
 
 find_define() {
