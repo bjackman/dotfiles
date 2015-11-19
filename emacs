@@ -6,7 +6,7 @@
       package-archives)
 
 (setq package-list '(helm-projectile projectile f s
-                     color-theme-monokai solarized-theme color-theme
+                     solarized-theme color-theme
                      evil async magit tabbar-ruler helm-gtags
                      buffer-move dired-subtree guide-key))
 
