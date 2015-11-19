@@ -154,19 +154,22 @@ lg() {
 
     if [[ $1 != "" ]]; then
         if git rev-parse $1 &>/dev/null; then
-            base_arg=$1..HEAD
+            if [[ $2 != "" ]]; then
+                range_arg="-n $2"
+            fi
+            range_arg="$range_arg $1..HEAD"
         else
-            base_arg="-n $1"
+            range_arg="-n $1"
         fi
     else
         if [ $current_branch == "master" ]; then
-            base_arg="-n 30"
+            range_arg="-n 30"
         else
-            base_arg=master^..HEAD
+            range_arg=master^..HEAD
         fi
     fi
 
-    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $base_arg
+    echo git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $range_arg
 }
 
 ####################
