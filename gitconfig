@@ -8,7 +8,7 @@
 	default = upstream
 [alias]
   rbm = rebase -i master
-
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [diff]
 	renames = copies
 	mnemonicprefix = true
