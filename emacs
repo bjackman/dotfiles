@@ -200,6 +200,8 @@
 ; Don't open another stupid frame in stupid ediff
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
+(load-file "~/dotfiles/hoon-mode.el")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -218,6 +220,9 @@
  '(delete-trailing-lines nil)
  '(ede-project-directories (quote ("/home/brendan/little")))
  '(indent-tabs-mode nil)
+ '(package-selected-packages
+   (quote
+    (guide-key dired-subtree buffer-move helm-gtags tabbar-ruler magit evil color-theme solarized-theme helm-projectile f)))
  '(require-final-newline t)
  '(safe-local-variable-values
    (quote
