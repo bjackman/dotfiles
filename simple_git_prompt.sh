@@ -79,13 +79,16 @@ GIT_PS1_SHOWUNTRACKEDFILES=yes
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=yes
 
+PROMPT_PRE="[\[$BBlue\]$shorthost \[$BWhite\]\w\[$Color_Off\]"
+PROMPT_SUF="]\[$BWhite\]$ \[$Color_Off\]"
+
 prompt_on() {
-    PROMPT_COMMAND='__git_ps1 "[\[$BBlue\]\h \[$BWhite\]\w\[$Color_Off\]" "]\[$BWhite\]$ \[$Color_Off\]"'
+    PROMPT_COMMAND='__git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"'
 }
 
 prompt_off() {
     PROMPT_COMMAND=
-    PS1="[\[$BWhite\]\W\[$Color_Off\]]\[$BWhite\]$ \[$Color_Off\]"
+    PS1="$PROMPT_PRE (off) $PROMPT_SUF"
 }
 
 prompt_on
