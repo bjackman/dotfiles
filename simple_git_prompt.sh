@@ -79,6 +79,12 @@ GIT_PS1_SHOWUNTRACKEDFILES=yes
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=yes
 
+export PROMPT_DIRTRIM=3
+
+hostname=$(hostname)
+shorthost=${hostname##*-}
+shorthost=${shorthost:0:5}
+
 PROMPT_PRE="[\[$BBlue\]$shorthost \[$BWhite\]\w\[$Color_Off\]"
 PROMPT_SUF="]\[$BWhite\]$ \[$Color_Off\]"
 
