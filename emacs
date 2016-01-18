@@ -95,6 +95,8 @@
   (lambda () (interactive)
     (projectile-run-shell-command-in-root "make clean")))
 
+(setq projectile-git-command "git ls-files -zc")
+
 ;; clean whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
