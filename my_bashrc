@@ -194,6 +194,14 @@ alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "
 
+up() {
+  target=.
+  for i in `seq $1`; do
+    target=$target/..
+  done
+  cd $target
+}
+
 GERT=1000000000
 HISTFILESIZE=$GERT
 HISTSIZE=$GERT
