@@ -194,12 +194,19 @@ alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "
 
-up() {
+_up() {
+  local target
   target=.
   for i in `seq $1`; do
     target=$target/..
   done
-  cd $target
+  echo $target
+}
+up() {
+  cd $(_up $*)
+}
+upp() {
+  pushd $(_up $*)
 }
 
 GERT=1000000000
