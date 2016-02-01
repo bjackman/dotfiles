@@ -223,4 +223,17 @@ if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
 fi
 
-fortune | cowsay
+if which fortune > /dev/null && which cowsay > /dev/null; then
+    fortune | cowsay
+else
+    cat <<EOF
+ ___________________________
+< WHAT IS THIS I DON'T EVEN >
+ ---------------------------
+        \   ^__^
+         \  (@@)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+EOF
+fi
