@@ -189,11 +189,19 @@ alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
 alias webserver="python -m SimpleHTTPServer 8080 "
-alias em="emacsclient -n"
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "
 
+em() {
+  if pgrep emacs > /dev/null; then
+    emacsclient --no-wait $*
+  else
+    emacs $*
+  fi
+}
+
+alias em="emacsclient -n"
 _up() {
   local target
   target=.
