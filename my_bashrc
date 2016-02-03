@@ -197,11 +197,10 @@ em() {
   if pgrep emacs > /dev/null; then
     emacsclient --no-wait $*
   else
-    emacs $*
+    emacs $* &
   fi
 }
 
-alias em="emacsclient -n"
 _up() {
   local target
   target=.
