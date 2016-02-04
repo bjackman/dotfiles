@@ -212,7 +212,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(c-lock-comment-prefix "* ")
- ;; '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk"))))
  '(c-offsets-alist (quote ((statement-cont . c-lineup-assignments))))
  '(c-tab-always-indent nil)
  '(compilation-always-kill t)
