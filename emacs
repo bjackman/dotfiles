@@ -207,6 +207,7 @@
 (setq c-default-style "linux")
 
 (global-set-key (kbd "C-c w") 'whitespace-mode)
+(global-set-key (kbd "C-c c") 'compile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
