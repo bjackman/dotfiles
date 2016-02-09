@@ -131,6 +131,8 @@
 (add-hook 'python-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 
+(add-hook 'js-mode-hook '(lambda () (setq indent-tabs-mode nil)))
+
 ;; No fucking idea how this works, but it maps kj to exit insert mode in Evil. Apparently.
 (define-key evil-insert-state-map "k" #'cofi/maybe-exit)
 (evil-define-command cofi/maybe-exit ()
