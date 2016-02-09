@@ -137,6 +137,7 @@ alias gap="git add -p "
 alias gcam="git commit -am "
 alias gcamend="git commit --amend"
 alias gcm="git commit -m "
+alias gsign="git commit --amend --signoff --no-edit "
 
 alias gcf="git clean -f "
 alias gc="git checkout "
