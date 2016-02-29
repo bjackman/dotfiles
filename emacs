@@ -210,6 +210,14 @@
 
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c c") 'compile)
+(global-set-key (kbd "C-c k") 'woman)
+
+; Insert current filename in minibuffer with f3
+(define-key minibuffer-local-map [f3]
+  (lambda () (interactive)
+     (insert (buffer-name (window-buffer (minibuffer-selected-window))))))
+
+(desktop-save-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
