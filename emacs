@@ -63,7 +63,7 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; http://tuhdo.github.io/c-ide.html#sec-1 for more
-(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-common-hook 'helm-gtags-mode)
 
 (require 'helm-gtags)
 (define-key helm-gtags-mode-map (kbd "C-c t") 'helm-gtags-dwim)
