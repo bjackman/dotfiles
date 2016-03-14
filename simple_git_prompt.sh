@@ -94,6 +94,7 @@ is_ssh_session() {
 }
 
 my_prompt_command() {
+    # Show exit code in red if it's nonzero
     local exit_code=$?
     if [ "$exit_code" = 0 ]; then
 	exit_code_bit=
