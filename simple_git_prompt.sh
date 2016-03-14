@@ -91,17 +91,20 @@ else
     hostname_colour="$BBlue"
 fi
 
+# Use this to detect how many nested shells we're in
+export SHELL_NEST=${SHELL_NEST}">"
+
 my_prompt_command() {
     # Show exit code in red if it's nonzero
     local exit_code=$?
     if [ "$exit_code" = 0 ]; then
-	exit_code_bit=
+	local exit_code_bit=
     else
-	exit_code_bit="\[$BRed\]$?\[$Color_off\] "
+	local exit_code_bit="\[$BRed\]$?\[$Color_off\] "
     fi
 
     PROMPT_PRE="\n$exit_code_bit\[$hostname_colour\]\h \[$BWhite\]\w\[$Color_Off\]"
-    PROMPT_SUF="\[$BWhite\]\n$ \[$Color_Off\]"
+    PROMPT_SUF=" ${SHELL_NEST:1}\[$BWhite\]\n$ \[$Color_Off\]"
 
     __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
 }
