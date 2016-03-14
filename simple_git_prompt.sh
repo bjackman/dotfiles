@@ -85,13 +85,11 @@ hostname=$(hostname)
 shorthost=${hostname##*-}
 shorthost=${shorthost:0:5}
 
-is_ssh_session() {
-    if [ "$SSH_CLIENT" ] || [ "$SSH_TTY" ]; then
-	return 0
-    else
-	return 1
-    fi
-}
+if [ "$SSH_CLIENT" ] || [ "$SSH_TTY" ]; then
+    hostname_colour="$BCyan"
+else
+    hostname_colour="$BBlue"
+fi
 
 my_prompt_command() {
     # Show exit code in red if it's nonzero
@@ -100,14 +98,6 @@ my_prompt_command() {
 	exit_code_bit=
     else
 	exit_code_bit="\[$BRed\]$?\[$Color_off\] "
-    fi
-
-    # Make the hostname INTENSE if we're in SSH
-    if is_ssh_session; then
-	local hostname_colour="$BCyan"
-	echo SSH
-    else
-	local hostname_colour="$BBlue"
     fi
 
     PROMPT_PRE="\n$exit_code_bit\[$hostname_colour\]\h \[$BWhite\]\w\[$Color_Off\]"
@@ -122,6 +112,7 @@ prompt_on() {
 
 prompt_off() {
     PROMPT_COMMAND=
+    exit_code_bit=
     PS1="$PROMPT_PRE (off) $PROMPT_SUF"
 }
 
