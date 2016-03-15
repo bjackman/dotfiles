@@ -103,6 +103,8 @@
 (add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
 
 ;; disable Evil mode in some modes
+(evil-set-initial-state 'magit-popup-mode 'emacs)
+(evil-set-initial-state 'magit-status-mode 'emacs)
 (evil-set-initial-state 'git-rebase-mode 'emacs)
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'neotree-mode 'emacs)
