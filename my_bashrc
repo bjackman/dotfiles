@@ -217,6 +217,18 @@ upp() {
   pushd $(_up $*)
 }
 
+bakup() {
+  local orig="$1"
+  local bakup="$1".bak
+
+  if [ -e "bakup" ]; then
+    echo $bakup already exists
+    return 1
+  fi
+
+  mv "$orig" "$bakup"
+}
+
 GERT=1000000000
 HISTFILESIZE=$GERT
 HISTSIZE=$GERT
