@@ -229,6 +229,19 @@ bakup() {
   mv "$orig" "$bakup"
 }
 
+_cmdiff() {
+  diff="$1"
+  shift
+  cmd="$1"
+  $diff <($cmd $2) <($cmd $3)
+}
+cmdiff() {
+  _cmdiff diff "$@"
+}
+vcmdiff() {
+  _cmdiff vimdiff "$@"
+}
+
 GERT=1000000000
 HISTFILESIZE=$GERT
 HISTSIZE=$GERT
