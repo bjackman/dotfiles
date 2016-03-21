@@ -213,6 +213,7 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c k") 'woman)
+(global-set-key (kbd "C-c s") 'sort-lines)
 
 ; Insert current filename in minibuffer with f3
 (define-key minibuffer-local-map [f3]
