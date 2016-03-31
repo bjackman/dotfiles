@@ -194,7 +194,7 @@
     (interactive)
     (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
-(global-set-key (kbd "C-c a") 'align-regexp)
+(global-set-key (kbd "C-c A") 'align-regexp)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 
 ; Show file path in frame title
@@ -219,6 +219,12 @@
      (insert (buffer-name (window-buffer (minibuffer-selected-window))))))
 
 (desktop-save-mode 1)
+
+;; (define-key global-map "\C-cl" 'org-store-link)
+;; (define-key global-map "\C-ca" 'org-agenda)
+(require 'org)
+(define-key org-mode-map (kbd "RET") 'org-return-indent)
+(setq org-log-done t)
 
 (c-add-style "scp"
 	     '("linux"
