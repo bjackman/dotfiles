@@ -67,6 +67,7 @@
 
 (require 'helm-gtags)
 (define-key helm-gtags-mode-map (kbd "C-c t") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "C-c 4 t") 'helm-gtags-find-tag-other-window)
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
