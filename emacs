@@ -306,6 +306,8 @@
 		(template-args-cont c-lineup-template-args +)
 		(topmost-intro-cont . c-lineup-topmost-intro-cont))))
 
+(setq c-default-style "scp")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
