@@ -153,13 +153,13 @@
 
 (global-set-key (kbd "C-c A") 'align-regexp)
 (global-set-key (kbd "C-c r") 'revert-buffer)
-
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c k") 'woman)
 (global-set-key (kbd "C-c s") 'sort-lines)
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c f") 'ffap)
 
 ; Insert current filename in minibuffer with f3
 (define-key minibuffer-local-map [f3]
