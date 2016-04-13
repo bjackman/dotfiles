@@ -87,6 +87,7 @@
 (setq projectile-enable-caching t)
 (setq compilation-read-command nil)
 (setq projectile-git-command "git ls-files -zc")
+(setq projectile-switch-project-action 'projectile-commander)
 
 (defun multi-compile-projectile ()
   (interactive)
