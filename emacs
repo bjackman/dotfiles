@@ -185,6 +185,7 @@
 (setq org-log-done t)
 
 (add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
 
 (c-add-style "scp"
 	     '("linux"
@@ -289,10 +290,11 @@
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(ediff-split-window-function (quote split-window-horizontally))
+ '(fill-column 80)
  '(multi-compile-completion-system (quote helm))
  '(package-selected-packages
    (quote
-    (tabbar-ruler solarized-theme magit helm-projectile helm-gtags guide-key f evil dired-subtree color-theme buffer-move)))
+    (fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile helm-gtags guide-key f evil dired-subtree color-theme buffer-move)))
  '(require-final-newline t)
  '(standard-indent 4))
 
