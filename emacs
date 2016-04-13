@@ -96,6 +96,9 @@
     (multi-compile-run)))
 ;; This overrides projectile-commander (which I never use)
 (define-key projectile-mode-map (kbd "C-c p m") 'multi-compile-projectile)
+;; Make any value safe for file-local and dir-local multi-compile-alist
+(put 'multi-compile-alist 'safe-local-variable
+     (lambda (x) t))
 ;; Example dir-locals.el:
 ;; ((nil
 ;;   (multi-compile-alist . (("\\.*" ("name" . "command1") ("name2" . "command2"))))
