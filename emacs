@@ -88,6 +88,7 @@
 (setq compilation-read-command nil)
 (setq projectile-git-command "git ls-files -zc")
 (setq projectile-switch-project-action 'projectile-commander)
+(def-projectile-commander-method ?h "Run helm-projectile" (helm-projectile))
 
 (defun multi-compile-projectile ()
   (interactive)
