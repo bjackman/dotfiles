@@ -299,5 +299,6 @@
  '(require-final-newline t)
  '(standard-indent 4))
 
+(set-face-attribute 'default nil :height 110) ;; God reads in 11pt
 (load-theme 'solarized-dark)
 (server-start)
