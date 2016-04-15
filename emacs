@@ -149,6 +149,12 @@
 ; Make horizontal movement cross lines
 (setq-default evil-cross-lines t)
 
+;; There has to be a quicker way to do this..
+(define-key evil-normal-state-map (kbd "TAB")
+  (lambda () (interactive)
+    (save-excursion
+      (back-to-indentation)
+      (indent-for-tab-command))))
 
 (require 'tex-mode)
 (defun latex-word-count ()
