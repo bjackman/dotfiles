@@ -192,13 +192,22 @@
 (add-hook 'c-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'fci-mode)
 
+(defun my-c-lineup-arglist-intro-after-func (langelem)
+  "Line up the first argument to a function by indenting 1 step from the
+beginning of the function name"
+  (save-excursion
+    (beginning-of-line)
+    (backward-up-list 1)
+    (c-backward-token-2 1)
+    c-basic-offset))
+
 (c-add-style "scp"
 	     '("linux"
 	       (c-basic-offset . 4)	; Guessed value
 	       (indent-tabs-mode . nil)
 	       (c-offsets-alist
 		(arglist-cont . 0)	; Guessed value
-		(arglist-intro . 0)	; Guessed value
+		(arglist-intro . my-c-lineup-arglist-intro-after-func)
 		(block-close . 0)	; Guessed value
 		(brace-list-close . 0)	; Guessed value
 		(brace-list-entry . 0)	; Guessed value
