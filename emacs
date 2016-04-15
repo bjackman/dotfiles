@@ -289,6 +289,12 @@ beginning of the function name"
     (with-current-buffer buffer
       (hack-dir-local-variables-non-file-buffer))))
 
+(defun my-serial-term ()
+  "Open /dev/ttyUSB0 with 115200 baud"
+  (interactive)
+  (serial-term "/dev/ttyUSB0" 115200)
+  (term-line-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
