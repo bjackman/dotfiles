@@ -7,7 +7,7 @@
 
 (setq package-list '(helm-projectile projectile f s
                      solarized-theme color-theme fill-column-indicator
-                     evil async magit tabbar-ruler helm-gtags))
+                     evil async magit tabbar-ruler ggtags))
 
 (package-initialize)
 (unless package-archive-contents
@@ -48,13 +48,6 @@
 
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(require 'helm-gtags)
-(define-key helm-gtags-mode-map (kbd "C-c t") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "C-c 4 t") 'helm-gtags-find-tag-other-window)
-(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-;; http://tuhdo.github.io/c-ide.html#sec-1 for more
-(add-hook 'c-mode-common-hook 'helm-gtags-mode)
 
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
@@ -300,7 +293,7 @@
  '(multi-compile-completion-system (quote helm))
  '(package-selected-packages
    (quote
-    (fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile helm-gtags guide-key f evil dired-subtree color-theme buffer-move)))
+    (ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move)))
  '(require-final-newline t)
  '(standard-indent 4))
 
