@@ -146,6 +146,13 @@
 (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
 (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
 
+(define-key evil-normal-state-map (kbd "W") 'forward-symbol)
+(defun backward-symbol (&optional arg)
+  "From .emacs"
+  (interactive "p")
+  (forward-symbol (- (or arg 1))))
+(define-key evil-normal-state-map (kbd "B") 'backward-symbol)
+
 ; Make horizontal movement cross lines
 (setq-default evil-cross-lines t)
 
