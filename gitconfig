@@ -4,6 +4,7 @@
 [core]
 	editor = vim
 	preloadindex = true
+	excludesfile = /home/brejac01/dotfiles/global_gitignore
 [push]
 	default = upstream
 [alias]
