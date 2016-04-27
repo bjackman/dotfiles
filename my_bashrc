@@ -86,6 +86,11 @@ newdir() {
   cd $1
 }
 
+newpdir() {
+  mkdir $1
+  pushd $1
+}
+
 hex2dec() {
   if [ -z `echo $* | grep 0x` ]; then
     printf "%d\n" 0x$*
