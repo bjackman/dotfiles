@@ -7,7 +7,7 @@
 
 (setq package-list '(helm-projectile projectile f s
                      solarized-theme color-theme fill-column-indicator
-                     evil async magit tabbar-ruler ggtags))
+                     evil async magit tabbar-ruler ggtags evil-magit))
 
 (package-initialize)
 (unless package-archive-contents
@@ -116,11 +116,12 @@
 
 (require 'evil)
 (evil-mode 1)
-(evil-set-initial-state 'magit-popup-mode 'emacs)
-(evil-set-initial-state 'magit-status-mode 'emacs)
-(evil-set-initial-state 'git-rebase-mode 'emacs)
-(evil-set-initial-state 'dired-mode 'emacs)
-(evil-set-initial-state 'magit-blame-mode 'emacs)
+;; (evil-set-initial-state 'magit-popup-mode 'emacs)
+;; (evil-set-initial-state 'magit-status-mode 'emacs)
+;; (evil-set-initial-state 'git-rebase-mode 'emacs)
+;; (evil-set-initial-state 'dired-mode 'emacs)
+;; (evil-set-initial-state 'magit-blame-mode 'emacs)
+(require 'evil-magit)
 
 ;; No fucking idea how this works, but it maps kj to exit insert mode in Evil. Apparently.
 (define-key evil-insert-state-map "k" #'cofi/maybe-exit)
