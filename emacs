@@ -294,6 +294,26 @@ beginning of the function name"
 
 (setq c-default-style "scp")
 
+(when (boundp 'save-some-buffers-action-alist)
+  (setq save-some-buffers-action-alist
+        (cons
+         (list
+          ?%
+          #'(lambda (buf)
+              (with-current-buffer buf
+                (set-buffer-modified-p nil))
+              nil)
+          "mark buffer unmodified.")
+         (cons
+          (list
+           ?,
+           #'(lambda (buf)
+               (with-current-buffer buf
+                 (revert-buffer t))
+               nil)
+           "revert buffer.")
+          save-some-buffers-action-alist)))
+
 (defun reload-dir-locals-all-buffers ()
   "Reload dir-locals for all buffers"
   (interactive)
