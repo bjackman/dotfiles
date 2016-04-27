@@ -287,6 +287,11 @@ beginning of the function name"
 		(template-args-cont c-lineup-template-args +)
 		(topmost-intro-cont . c-lineup-topmost-intro-cont))))
 
+(c-add-style "trusted-firmware"
+	     '("scp"
+	       (c-basic-offset . 8)
+               (indent-tabs-mode .nil)))
+
 (setq c-default-style "scp")
 
 (defun reload-dir-locals-all-buffers ()
