@@ -206,7 +206,7 @@ beginning of the function name"
     (beginning-of-line)
     (backward-up-list 1)
     (c-backward-token-2 1)
-    c-basic-offset))
+    (current-column)))
 
 (c-add-style "scp"
 	     '("linux"
