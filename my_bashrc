@@ -268,7 +268,8 @@ HISTCONTROL=ignoredups
 HISTIGNORE="ls:bg:fg:history"
 shopt -s cmdhist #squash multiline commands into one line (obviously..)
 
-export GREP_OPTIONS="--color=auto"
+# GREP_OPTIONS is deprecated, y GNU mama tambien
+alias grep="grep --color=auto "
 
 if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
