@@ -235,6 +235,18 @@ bakup() {
   mv "$orig" "$bakup"
 }
 
+rekstore() {
+  local orig="$1"
+  local bakup="$1".bak
+
+  if [ -e "orig" ]; then
+    echo $orig already exists
+    return 1
+  fi
+
+  mv "$bakup" "$orig"
+}
+
 _cmdiff() {
   diff="$1"
   shift
