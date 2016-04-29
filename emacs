@@ -5,7 +5,7 @@
 (push '("melpa" . "http://melpa.milkbox.net/packages/")
       package-archives)
 
-(setq package-list '(helm-projectile projectile f s
+(setq package-list '(helm-projectile projectile f s multi-compile
                      solarized-theme color-theme fill-column-indicator
                      evil async magit tabbar-ruler ggtags evil-magit))
 
