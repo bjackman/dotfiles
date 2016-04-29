@@ -316,7 +316,7 @@ beginning of the function name"
                  (revert-buffer t))
                nil)
            "revert buffer.")
-          save-some-buffers-action-alist)))
+          save-some-buffers-action-alist))))
 
 (defun reload-dir-locals-all-buffers ()
   "Reload dir-locals for all buffers"
