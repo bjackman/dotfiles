@@ -61,8 +61,8 @@
 
 (defun arduino-terminal ()
   (interactive)
-  (serial-term "/dev/ttyACM0" 9600)
-  (term-line-mode))
+  (serial-term "/dev/ttyACM0" 9600
+  (term-line-mode)))
 
 ;; open .emacs
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file user-init-file)))
