@@ -66,7 +66,7 @@
 
 ;; open .emacs
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file user-init-file)))
-(global-set-key (kbd "C-c C-r") (lambda () (interactive) (load-file "~/.emacs")))
+(global-set-key (kbd "C-c r e") (lambda () (interactive) (load-file "~/.emacs")))
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
 ; Don't ask before following symlinks to source controlled files
@@ -185,7 +185,7 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 (global-set-key (kbd "C-c A") 'align-regexp)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c r b") 'revert-buffer)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c k") 'woman)
@@ -329,6 +329,8 @@ beginning of the function name"
   (dolist (buffer (buffer-list))
     (with-current-buffer buffer
       (hack-dir-local-variables-non-file-buffer))))
+
+(global-set-key (kbd "C-c r d") 'reload-dir-locals-all-buffers)
 
 (defun my-serial-term ()
   "Open /dev/ttyUSB0 with 115200 baud, save the buffer in my-serial-term-buffer"
