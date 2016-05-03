@@ -20,12 +20,8 @@
 
 (global-visual-line-mode t)
 
-(setq inhibit-startup-message t)
 ;; because fuck typing 3 whole characters
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
 
 (tabbar-mode 1)
 (column-number-mode 1)
@@ -37,8 +33,6 @@
 
 ; Maximise on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq indent-tabs-mode nil)
 
 ; Show file path in frame title
 (setq frame-title-format
@@ -64,9 +58,6 @@
 (global-set-key (kbd "C-c C-r") (lambda () (interactive) (load-file "~/.emacs")))
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
-; Don't ask before following symlinks to source controlled files
-(setq vc-follow-symlinks t)
-
 
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c m b") 'magit-blame)
@@ -336,9 +327,7 @@ beginning of the function name"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(c-lock-comment-prefix "* ")
- '(c-offsets-alist (quote ((statement-cont . c-lineup-assignments))))
- '(c-tab-always-indent nil)
+ '(auto-save-default nil)
  '(compilation-always-kill t)
  '(compilation-auto-jump-to-first-error t)
  '(compilation-scroll-output (quote first-error))
@@ -347,13 +336,22 @@ beginning of the function name"
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(ediff-split-window-function (quote split-window-horizontally))
  '(fill-column 80)
+ '(inhibit-startup-screen t)
+ '(make-backup-files nil)
  '(multi-compile-completion-system (quote helm))
  '(package-selected-packages
    (quote
     (ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move)))
  '(require-final-newline t)
  '(standard-indent 4))
+ '(vc-follow-symlinks t))
 
 (set-face-attribute 'default nil :height 110) ;; God reads in 11pt
 (load-theme 'solarized-dark)
 (server-start)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
