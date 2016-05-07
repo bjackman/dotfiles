@@ -371,6 +371,7 @@ beginning of the function name"
  '(compilation-auto-jump-to-first-error t)
  '(compilation-message-face (quote default))
  '(compilation-scroll-output (quote first-error))
+ '(compilation-skip-threshold 2)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
