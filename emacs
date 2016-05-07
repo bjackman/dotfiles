@@ -345,7 +345,7 @@ beginning of the function name"
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
-(put 'arduino-serial-file 'safe-local-variable (lambda (x) (stringp x)))
+(put 'arduino-serial-file 'safe-local-variable (lambda (x) t))
 (defun arduino-terminal (compilation-buffer result-str)
   (message "arduino-terminal called")
   (setq arduino-serial-buffer (my-serial-term arduino-serial-file)))
