@@ -301,6 +301,10 @@ beginning of the function name"
 	       (c-basic-offset . 8)
                (indent-tabs-mode .nil)))
 
+(c-add-style "adafruit"
+	     '("scp"
+	       (c-basic-offset . 2)))
+
 (setq c-default-style "scp")
 
 (when (boundp 'save-some-buffers-action-alist)
