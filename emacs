@@ -20,12 +20,8 @@
 
 (global-visual-line-mode t)
 
-(setq inhibit-startup-message t)
 ;; because fuck typing 3 whole characters
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
 
 (tabbar-mode 1)
 (column-number-mode 1)
@@ -37,8 +33,6 @@
 
 ; Maximise on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq indent-tabs-mode nil)
 
 ; Show file path in frame title
 (setq frame-title-format
@@ -69,9 +63,6 @@
 (global-set-key (kbd "C-c r e") (lambda () (interactive) (load-file "~/.emacs")))
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
-; Don't ask before following symlinks to source controlled files
-(setq vc-follow-symlinks t)
-
 
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c m b") 'magit-blame)
@@ -362,11 +353,7 @@ beginning of the function name"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
- '(c-lock-comment-prefix "* ")
- '(c-offsets-alist (quote ((statement-cont . c-lineup-assignments))))
- '(c-tab-always-indent nil)
+ '(auto-save-default nil)
  '(compilation-always-kill t)
  '(compilation-auto-jump-to-first-error t)
  '(compilation-message-face (quote default))
@@ -382,30 +369,8 @@ beginning of the function name"
  '(ediff-split-window-function (quote split-window-horizontally))
  '(fci-rule-color "#073642")
  '(fill-column 80)
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-symbol-colors
-   (--map
-    (solarized-color-blend it "#002b36" 0.25)
-    (quote
-     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
- '(highlight-symbol-foreground-color "#93a1a1")
- '(highlight-tail-colors
-   (quote
-    (("#073642" . 0)
-     ("#546E00" . 20)
-     ("#00736F" . 30)
-     ("#00629D" . 50)
-     ("#7B6000" . 60)
-     ("#8B2C02" . 70)
-     ("#93115C" . 85)
-     ("#073642" . 100))))
- '(hl-bg-colors
-   (quote
-    ("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00")))
- '(hl-fg-colors
-   (quote
-    ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
- '(magit-diff-use-overlays nil)
+ '(inhibit-startup-screen t)
+ '(make-backup-files nil)
  '(multi-compile-completion-system (quote helm))
  '(nrepl-message-colors
    (quote
@@ -416,39 +381,8 @@ beginning of the function name"
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(require-final-newline t)
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(standard-indent 4)
- '(term-default-bg-color "#002b36")
- '(term-default-fg-color "#839496")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#dc322f")
-     (40 . "#c85d17")
-     (60 . "#be730b")
-     (80 . "#b58900")
-     (100 . "#a58e00")
-     (120 . "#9d9100")
-     (140 . "#959300")
-     (160 . "#8d9600")
-     (180 . "#859900")
-     (200 . "#669b32")
-     (220 . "#579d4c")
-     (240 . "#489e65")
-     (260 . "#399f7e")
-     (280 . "#2aa198")
-     (300 . "#2898af")
-     (320 . "#2793ba")
-     (340 . "#268fc6")
-     (360 . "#268bd2"))))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   (quote
-    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
- '(xterm-color-names
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
- '(xterm-color-names-bright
-   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
+ '(vc-follow-symlinks t))
 
 (set-face-attribute 'default nil :height 110) ;; God reads in 11pt
 (load-theme 'solarized-dark)
