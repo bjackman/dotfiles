@@ -86,7 +86,6 @@
   (interactive)
   (projectile-with-default-dir
       (if (projectile-project-p) (projectile-project-root) default-directory)
-    (projectile-save-project-buffers)
     (multi-compile-run)))
 ;; This overrides projectile-commander (which I never use)
 (define-key projectile-mode-map (kbd "C-c p m") 'multi-compile-projectile)
