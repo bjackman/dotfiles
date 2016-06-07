@@ -294,7 +294,9 @@ beginning of the function name"
 (c-add-style "trusted-firmware"
 	     '("scp"
 	       (c-basic-offset . 8)
-               (indent-tabs-mode .nil)))
+               (indent-tabs-mode .nil)
+               (c-tab-always-indent . nil)
+               (tab-always-indent . nil)))
 
 (c-add-style "adafruit"
 	     '("scp"
