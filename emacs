@@ -139,6 +139,10 @@
     (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
+(defun exit-evil-and-save ()
+  (interactive)
+  (evil-normal-state)
+  (save-buffer))
 
 ;; Evil: Make movement keys use soft lines instead of hard
 (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
@@ -347,6 +351,12 @@ beginning of the function name"
   (let ((compilation-finish-functions '(arduino-terminal)))
     (when arduino-serial-buffer (kill-buffer arduino-serial-buffer))
     (compile "make upload")))
+
+(defun save-exit-compile ()
+  (interactive)
+  (exit-evil-and-save)
+  (multi-compile-projectile))
+(global-set-key (kbd "<f5>") 'save-exit-compile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
