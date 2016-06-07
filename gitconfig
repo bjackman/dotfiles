@@ -27,3 +27,5 @@
 	autosetuprebase = always
 [gitreview]
 	remote = origin
+[rerere]
+	enabled = true
