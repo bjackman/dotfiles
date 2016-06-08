@@ -151,8 +151,10 @@ alias gcb="git checkout -b"
 alias gcp="git checkout -p "
 alias grebase='git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
 alias grhard="git reset --hard "
-# Stay on the same commit, but with a floating HEAD
-alias gfloat='git checkout $(git rev-parse HEAD)'
+# Check out a commit with a floating head
+gfloat() {
+    git checkout $(git rev-parse ${1-HEAD})
+}
 
 pretty_log_args="--color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
