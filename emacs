@@ -388,6 +388,7 @@ beginning of the function name"
     (ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
+ '(projectile-use-git-grep t)
  '(require-final-newline t)
  '(standard-indent 4)
  '(vc-follow-symlinks t))
