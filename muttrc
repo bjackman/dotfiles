@@ -1,2 +1,52 @@
-set imap_pass=`pass gmail`
-set spoolfile="imaps://bhenryj0117@smtp.gmail.com"
+# Load mail credentials
+set imap_pass = `pass work`
+
+### IMAP
+set from = 'brendan.jackman@arm.com'
+set realname = 'Brendan Jackman'
+
+# This file is public so don't really want to expose servert deets in here.
+# Set folder and smpt_url in this file:
+source ~/.local_muttrc
+
+set spoolfile = +INBOX
+set record = "=Sent Items"
+set postponed = "=Drafts"
+
+### Imap-specific config
+# Check all the subscribed folders
+set imap_check_subscribed = yes
+
+# List of characters which you would like to treat as folder separators for displaying IMAP paths.  Remove the "." as it is a valid character for an IMAP folder
+set imap_delim_chars = "/"
+
+# Use the IMAP IDLE extension to check for new mail in the current mailbox
+set imap_idle = yes
+
+# Check mail in mailboxes every number of seconds
+set mail_check = 600
+
+# This variable controls how many seconds Mutt will at most wait until it aborts waiting for input, performs mail checking or keeping an IMAP connection alive, and continues to wait for input.
+set timeout = 5
+
+# Cache contents of messages
+set message_cachedir = ~/.mutt/cache
+# Require that all connections to the imap servers are encrypted
+set ssl_force_tls = yes
+
+# Always use SSL when connecting to the IMAP server
+set ssl_starttls = yes
+
+set ssl_use_sslv3 = yes
+
+# Use emacs as editor
+set editor = "/usr/local/bin/emacsclient"
+
+# Header caching
+set header_cache = ~/.cache/mutt
+
+# Use utf8 by default
+set send_charset = "utf8"
+
+# Don't go to the next message when you scroll past the end of the current message
+set pager_stop = yes
