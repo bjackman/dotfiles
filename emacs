@@ -28,7 +28,7 @@
 (tabbar-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode 0)
-(add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
+;; (add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
 ;; clean whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (desktop-save-mode 1)
