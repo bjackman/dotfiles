@@ -30,3 +30,5 @@
 	remote = origin
 [rerere]
 	enabled = false
+[include]
+	path = ~/.local_gitconfig
