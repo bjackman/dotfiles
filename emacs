@@ -403,6 +403,7 @@ it swallows keypresses)"
  '(magit-log-arguments (quote ("--decorate" "-n256")))
  '(magit-patch-arguments (quote ("--cover-letter")))
  '(make-backup-files nil)
+ '(mouse-wheel-progressive-speed nil)
  '(multi-compile-completion-system (quote helm))
  '(nrepl-message-colors
    (quote
