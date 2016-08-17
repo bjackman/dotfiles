@@ -368,6 +368,14 @@ it swallows keypresses)"
   (projectile-compile-project))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
+(define-skeleton linux-printk-skeleton
+  "Inserts a Linux printk call with the function name"
+  nil "printk(\"%s: " _ "\\n\", __func__\);" >) ; NEAR
+                                                ; FAR
+                                                ; WHEREEEEVER YOU ARE
+(define-abbrev c-mode-abbrev-table "prk"
+  "" 'linux-printk-skeleton)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
