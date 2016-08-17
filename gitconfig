@@ -29,4 +29,4 @@
 [gitreview]
 	remote = origin
 [rerere]
-	enabled = true
+	enabled = false
