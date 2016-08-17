@@ -226,8 +226,8 @@ upp() {
 }
 
 bakup() {
-  local orig="$1"
-  local bakup="$1".bak
+  local orig="${1%/}" # '%/' removes trailing slash (only one though)
+  local bakup="%orig".bak
 
   if [ -e "bakup" ]; then
     echo $bakup already exists
