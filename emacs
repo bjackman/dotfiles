@@ -2,13 +2,18 @@
 
 ;;(push '("marmalade" . "http://marmalade-repo.org/packages/")
 ;;      package-archives )
-;; (push '("melpa" . "http://melpa.milkbox.net/packages/")
+;;(add-to-list 'package-archives
+;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;(push '("melpa" . "http://melpa.milkbox.net/packages/")
 ;;       package-archives)
-(push '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-      package-archives)
+;;(push '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+;;      package-archives)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
 
-(setq package-list '(helm-projectile projectile f s multi-compile
-                     solarized-theme color-theme fill-column-indicator
+
+(setq package-list '(helm-projectile projectile f s
+                     solarized-theme fill-column-indicator
                      evil async magit tabbar-ruler ggtags evil-magit))
 
 (package-initialize)
