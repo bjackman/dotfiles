@@ -415,6 +415,11 @@ it swallows keypresses)"
  '(pos-tip-foreground-color "#93a1a1")
  '(projectile-use-git-grep t)
  '(require-final-newline t)
+ '(safe-local-variable-values
+   (quote
+    ((c-default-style . "linux")
+     (indent-tabs-mode t)
+     (compilation-environment "ARCH=arm64" "CROSS_COMPILE=aarch64-linux-gnu-"))))
  '(standard-indent 4)
  '(vc-follow-symlinks t))
 
