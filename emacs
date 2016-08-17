@@ -70,6 +70,7 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c m b") 'magit-blame)
 (global-set-key (kbd "C-c m l") 'magit-log-buffer-file)
+(magit-define-popup-option 'magit-patch-popup ?S "Subject Prefix" "--subject-prefix=")
 
 ;; There's a bad interaction between vc and magit, where they compete for the
 ;; git lock. Workaround for that:
