@@ -2,7 +2,9 @@
 
 ;;(push '("marmalade" . "http://marmalade-repo.org/packages/")
 ;;      package-archives )
-(push '("melpa" . "http://melpa.milkbox.net/packages/")
+;; (push '("melpa" . "http://melpa.milkbox.net/packages/")
+;;       package-archives)
+(push '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
       package-archives)
 
 (setq package-list '(helm-projectile projectile f s multi-compile
