@@ -194,7 +194,7 @@
 ; Insert current filename in minibuffer with f3
 (define-key minibuffer-local-map [f3]
   (lambda () (interactive)
-     (insert (buffer-name (window-buffer (minibuffer-selected-window))))))
+     (insert (buffer-file-name (window-buffer (minibuffer-selected-window))))))
 
 ;; (define-key global-map "\C-cl" 'org-store-link)
 ;; (define-key global-map "\C-ca" 'org-agenda)
