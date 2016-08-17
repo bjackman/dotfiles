@@ -333,12 +333,20 @@ beginning of the function name"
 
 (global-set-key (kbd "C-c r d") 'reload-dir-locals-all-buffers)
 
-(defun my-serial-term ()
-  "Open /dev/ttyUSB0 with 115200 baud, save the buffer in my-serial-term-buffer"
+(defun my-serial-term (serial-path)
+  "Open a serial file at 115200 baud and put the buffer in line mode (otherwise
+it swallows keypresses)"
   (interactive "fserial file: ")
   (serial-term serial-path 115200)
   (term-line-mode)
   (current-buffer))
+
+; TODO: Instead of this, my-serial-term should just have /dev/ttyUSB0 as the
+; default argument for serial-path
+(defun ttys0-serial-term ()
+  "Open /dev/ttyS0 with 115200 baud"
+  (interactive)
+  (my-serial-term "/dev/ttyS0"))
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
