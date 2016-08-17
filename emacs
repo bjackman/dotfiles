@@ -376,6 +376,10 @@ it swallows keypresses)"
 (define-abbrev c-mode-abbrev-table "prk"
   "" 'linux-printk-skeleton)
 
+;; Fix some bollocks to do with pasting from other X clients into Emacs
+;; I haven't read it but probably this
+(setq x-selection-timeout 50)
+
 (global-set-key (kbd "C-x O") 'other-frame)
 
 (custom-set-variables
