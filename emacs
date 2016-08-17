@@ -304,8 +304,6 @@ beginning of the function name"
 	     '("scp"
 	       (c-basic-offset . 2)))
 
-(setq c-default-style "scp")
-
 (when (boundp 'save-some-buffers-action-alist)
   (setq save-some-buffers-action-alist
         (cons
