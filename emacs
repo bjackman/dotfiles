@@ -376,6 +376,8 @@ it swallows keypresses)"
 (define-abbrev c-mode-abbrev-table "prk"
   "" 'linux-printk-skeleton)
 
+(global-set-key (kbd "C-x O") 'other-frame)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
