@@ -400,6 +400,8 @@ it swallows keypresses)"
  '(fci-rule-color "#073642")
  '(fill-column 80)
  '(inhibit-startup-screen t)
+ '(magit-log-arguments (quote ("--decorate" "-n256")))
+ '(magit-patch-arguments (quote ("--cover-letter")))
  '(make-backup-files nil)
  '(multi-compile-completion-system (quote helm))
  '(nrepl-message-colors
