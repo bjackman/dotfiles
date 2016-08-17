@@ -365,7 +365,7 @@ it swallows keypresses)"
 (defun save-exit-compile ()
   (interactive)
   (exit-evil-and-save)
-  (multi-compile-projectile))
+  (projectile-compile-project))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
 (custom-set-variables
