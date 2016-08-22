@@ -2,7 +2,7 @@
 	email = brendan.jackman@arm.com
 	name = Brendan Jackman
 [core]
-	editor = vim
+	editor = emacsclient
 	preloadindex = true
 	excludesfile = /home/brejac01/dotfiles/global_gitignore
 [push]
