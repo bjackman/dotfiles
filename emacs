@@ -381,6 +381,14 @@ it swallows keypresses)"
 (define-abbrev c-mode-abbrev-table "prk"
   "" 'linux-printk-skeleton)
 
+(defun checkpatch-this-file ()
+  (interactive)
+  (let ((script (concat (projectile-project-root) "scripts/checkpatch.pl")))
+    (let ((cmd (concat script " --no-color --emacs --file " (buffer-file-name))))
+      (message cmd)
+      (compile cmd))))
+
+
 ;; Fix some bollocks to do with pasting from other X clients into Emacs
 ;; I haven't read it but probably this
 (setq x-selection-timeout 50)
