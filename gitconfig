@@ -32,3 +32,5 @@
 	enabled = false
 [include]
 	path = ~/.local_gitconfig
+[sendemail]
+	suppressFrom = true
