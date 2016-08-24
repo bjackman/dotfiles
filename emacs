@@ -122,11 +122,6 @@
 
 (require 'evil)
 (evil-mode 1)
-;; (evil-set-initial-state 'magit-popup-mode 'emacs)
-;; (evil-set-initial-state 'magit-status-mode 'emacs)
-;; (evil-set-initial-state 'git-rebase-mode 'emacs)
-;; (evil-set-initial-state 'dired-mode 'emacs)
-;; (evil-set-initial-state 'magit-blame-mode 'emacs)
 (require 'evil-magit)
 
 ;; No fucking idea how this works, but it maps kj to exit insert mode in Evil. Apparently.
