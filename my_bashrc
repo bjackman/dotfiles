@@ -227,9 +227,9 @@ upp() {
 
 bakup() {
   local orig="${1%/}" # '%/' removes trailing slash (only one though)
-  local bakup="%orig".bak
+  local bakup="$orig".bak
 
-  if [ -e "bakup" ]; then
+  if [ -e "$bakup" ]; then
     echo $bakup already exists
     return 1
   fi
@@ -238,14 +238,15 @@ bakup() {
 }
 
 rekstore() {
-  local orig="$1"
-  local bakup="$1".bak
+  local bakup="${1%/}" # '%/' removes trailing slash (only one though)
+  local orig="${bakup%.bak}"
 
-  if [ -e "orig" ]; then
+  if [ -e "$orig" ]; then
     echo $orig already exists
     return 1
   fi
 
+  echo mv "$bakup" "$orig"
   mv "$bakup" "$orig"
 }
 
