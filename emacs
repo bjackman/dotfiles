@@ -122,6 +122,7 @@
 
 (require 'evil)
 (evil-mode 1)
+(evil-set-initial-state 'term-mode 'emacs)
 (require 'evil-magit)
 
 ;; No fucking idea how this works, but it maps kj to exit insert mode in Evil. Apparently.
