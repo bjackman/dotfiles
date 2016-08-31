@@ -3,7 +3,7 @@
 # Set folder and smpt_url in this file:
 source ~/.local_muttrc
 
-set spoolfile = +INBOX
+set spoolfile = "+INBOX/linux-pm"
 set record = "=Sent"
 set postponed = "=Drafts"
 
