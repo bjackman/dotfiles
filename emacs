@@ -406,7 +406,7 @@ it swallows keypresses)"
  '(compilation-auto-jump-to-first-error t)
  '(compilation-message-face (quote default))
  '(compilation-scroll-output (quote first-error))
- '(compilation-skip-threshold 2)
+ '(compilation-skip-threshold 0)
  '(compile-command "make -j30")
  '(confirm-kill-emacs (quote y-or-n-p))
  '(custom-safe-themes
