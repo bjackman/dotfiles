@@ -17,7 +17,7 @@
 	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool --dir-diff $REVISION~ $REVISION' -"
 [diff]
 	renames = copies
-	mnemonicprefix = true
+	mnemonicprefix = false
 [help]
 	autocorrect = 3
 [color]
