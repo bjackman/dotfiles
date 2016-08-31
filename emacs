@@ -72,6 +72,7 @@
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
 
+(require 'magit)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c m b") 'magit-blame)
 (global-set-key (kbd "C-c m l") 'magit-log-buffer-file)
