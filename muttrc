@@ -48,3 +48,7 @@ set pager_stop = yes
 # Change collapse thread keybindings to optimise for humans with fingers and a keyboard
 bind index - collapse-thread
 bind index _ collapse-all
+
+# Set up thread sorting to optimise for beings who wish to communicate via email
+set sort = threads
+set sort_aux = last-date-received
