@@ -349,6 +349,10 @@ it swallows keypresses)"
   "Open /dev/ttyS0 with 115200 baud"
   (interactive)
   (my-serial-term "/dev/ttyS0"))
+(defun ttyusb0-serial-term ()
+  "Open /dev/ttyUSB0 with 115200 baud"
+  (interactive)
+  (my-serial-term "/dev/ttyUSB0"))
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
