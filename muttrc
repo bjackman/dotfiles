@@ -1,10 +1,4 @@
 # Load mail credentials
-set imap_pass = `pass work`
-
-### IMAP
-set from = 'brendan.jackman@arm.com'
-set realname = 'Brendan Jackman'
-
 # This file is public so don't really want to expose servert deets in here.
 # Set folder and smpt_url in this file:
 source ~/.local_muttrc
