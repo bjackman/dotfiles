@@ -4,7 +4,7 @@
 source ~/.local_muttrc
 
 set spoolfile = +INBOX
-set record = "=Sent Items"
+set record = "=Sent"
 set postponed = "=Drafts"
 
 ### Imap-specific config
