@@ -399,6 +399,12 @@ it swallows keypresses)"
 (when (file-exists-p "~/.mu4e.el")
   (load-file "~/.mu4e.el"))
 
+;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
+;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
+;; Note we don't have a newline at the end.
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+(setq message-citation-line-format "On %a, %b %d %Y at %R, %N wrote:")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
