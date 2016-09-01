@@ -396,6 +396,9 @@ it swallows keypresses)"
 
 (global-set-key (kbd "C-x O") 'other-frame)
 
+(when (file-exists-p "~/.mu4e.el")
+  (load-file "~/.mu4e.el"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
