@@ -16,3 +16,4 @@ local.sh
 /config/sublime-text-3/Packages/User/Package Control.user-ca-bundle
 /config/sublime-text-3/Packages/ssl-linux/
 *.pyc
+/bin/pdsw_share.sh
