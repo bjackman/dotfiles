@@ -29,7 +29,8 @@
 [gitreview]
 	remote = origin
 [rerere]
-	enabled = false
+	enabled = 1
+	autoupdate = true
 [include]
 	path = ~/.local_gitconfig
 [sendemail]
