@@ -14,7 +14,7 @@
 
 (setq package-list '(helm-projectile projectile f s
                      solarized-theme fill-column-indicator
-                     evil async magit tabbar-ruler ggtags evil-magit))
+                     evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
 
 (package-initialize)
 (unless package-archive-contents
@@ -398,7 +398,8 @@ it swallows keypresses)"
 (global-set-key (kbd "C-x O") 'other-frame)
 
 (when (file-exists-p "~/.mu4e.el")
-  (load-file "~/.mu4e.el"))
+  (load-file "~/.mu4e.el")
+  (require 'evil-mu4e))
 
 ;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
 ;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
