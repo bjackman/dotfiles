@@ -410,6 +410,7 @@ it swallows keypresses)"
 (global-set-key (kbd "C-x O") 'other-frame)
 
 (when (file-exists-p "~/.mu4e.el")
+  (global-set-key (kbd "C-c 4") 'mu4e)
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e))
 
