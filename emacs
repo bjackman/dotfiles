@@ -339,6 +339,12 @@ beginning of the function name"
   "Open a serial file at 115200 baud and put the buffer in line mode (otherwise
 it swallows keypresses)"
   (interactive "fserial file: ")
+  ;; TODO: this will break horribly if
+  ;; - you rename the serial buffer
+  ;; - you have another buffer with the name of the serial path
+  ;; but I never rename buffers so fuck it
+  (when (get-buffer serial-path)
+    (kill-buffer serial-path))
   (serial-term serial-path 115200)
   (term-line-mode)
   (current-buffer))
