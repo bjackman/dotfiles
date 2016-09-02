@@ -1,3 +1,6 @@
+;; TODO Come on, there has to be a way to get Custom to format this properly.
+;; I can format it myself but Custom just overwrites it when I change anything.
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

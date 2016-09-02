@@ -1,3 +1,9 @@
+;; TODO use use-package to tidy this shit up
+
+;; TODO Figure out whether to make everythin use Custom or just use setq
+
+;; TODO If I upgrade to emacs 25.1 I can just use pacakge-selected-packages to
+;; do this (with Custom)
 (require 'package)
 
 ;;(push '("marmalade" . "http://marmalade-repo.org/packages/")
