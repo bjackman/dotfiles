@@ -354,6 +354,8 @@ it swallows keypresses)"
   (interactive)
   (my-serial-term "/dev/ttyUSB0"))
 
+(global-set-key (kbd "<f6>") 'ttyusb0-serial-term)
+
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
 (put 'arduino-serial-file 'safe-local-variable (lambda (x) t))
@@ -388,7 +390,6 @@ it swallows keypresses)"
     (let ((cmd (concat script " --no-color --emacs --file " (buffer-file-name))))
       (message cmd)
       (compile cmd))))
-
 
 ;; Fix some bollocks to do with pasting from other X clients into Emacs
 ;; I haven't read it but probably this
