@@ -413,6 +413,11 @@ it swallows keypresses)"
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e))
 
+;; Ain't nobody use the toolbar
+(tool-bar-mode -1)
+;; Or the menu bar
+(menu-bar-mode -1)
+
 ;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
 ;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
 ;; Note we don't have a newline at the end.
