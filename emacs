@@ -346,7 +346,7 @@ it swallows keypresses)"
   (when (get-buffer serial-path)
     (kill-buffer serial-path))
   (serial-term serial-path 115200)
-  (term-line-mode)
+  ;; (term-line-mode)
   (current-buffer))
 
 ; TODO: Instead of this, my-serial-term should just have /dev/ttyUSB0 as the
