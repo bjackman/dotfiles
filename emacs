@@ -414,6 +414,14 @@ it swallows keypresses)"
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e))
 
+(defun diff-mode-mu4e-mode ()
+  "Switch between mu4e-view-mode and diff-mode. This is useful for mailing list patches"
+  (interactive)
+  (cond ((eq major-mode 'mu4e-view-mode) (diff-mode))
+        ((eq major-mode 'diff-mode) (mu4e-view-mode))
+        (t (message "Not in diff-mode or mu4e-view-mode"))))
+(global-set-key (kbd "C-c d") 'diff-mode-mu4e-mode)
+
 ;; Ain't nobody use the toolbar
 (tool-bar-mode -1)
 ;; Or the menu bar
