@@ -410,7 +410,32 @@ it swallows keypresses)"
 (global-set-key (kbd "C-x O") 'other-frame)
 
 (when (file-exists-p "~/.mu4e.el")
+  ;; My ~/.mu4e.el at work looks like:
+
+  ;; (setq user-mail-address "natahan@trashbat.cok"
+  ;;       user-full-name "Nathan Barley")
+  ;; (setq message-send-mail-function 'smtpmail-send-it
+  ;;       smtpmail-stream-type 'starttls
+  ;;       smtpmail-default-smtp-server "smtp.trashbat.cok"
+  ;;       smtpmail-smtp-server "smtp.trashbat.cok"
+  ;;       smtpmail-smtp-service 587)
+
+  (require 'mu4e)
+  (require 'smtpmail)
   (global-set-key (kbd "C-c 4") 'mu4e)
+
+  (setq mu4e-drafts-folder "/Drafts"
+        mu4e-sent-folder   "/Sent"
+        mu4e-trash-folder  "/Trash"
+        mu4e-maildir-shortcuts '(("/INBOX" . ?i)
+                                 ("/INBOX.linux-pm" . ?l))
+        mu4e-get-mail-command "offlineimap"
+        mu4e-update-interval 120
+        message-send-mail-function 'smtpmail-send-it
+        ;; I think the following are pretty standard for SMTP in 2016
+        smtpmail-stream-type 'starttls
+        smtpmail-smtp-service 587)
+
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e))
 
