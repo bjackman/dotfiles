@@ -36,7 +36,6 @@
 ;; because fuck typing 3 whole characters
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(tabbar-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode 0)
 ;; (add-hook 'find-file-hook '(lambda () (linum-mode (if (buffer-file-name) 1 0))))
