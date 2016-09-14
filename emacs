@@ -435,6 +435,7 @@ it swallows keypresses)"
         smtpmail-stream-type 'starttls
         smtpmail-smtp-service 587)
 
+  (setq mu4e-use-fancy-chars t)
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e))
 
