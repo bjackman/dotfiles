@@ -44,7 +44,13 @@
  '(require-final-newline t)
  '(safe-local-variable-values
    (quote
-    ((c-default-style . "linux")
+    ((eval progn
+           (require
+            (quote projectile))
+           (puthash
+            (projectile-project-root)
+            "nosetests" projectile-test-cmd-map))
+     (c-default-style . "linux")
      (indent-tabs-mode t)
      (compilation-environment "ARCH=arm64" "CROSS_COMPILE=aarch64-linux-gnu-"))))
  '(standard-indent 4)
