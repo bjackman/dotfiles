@@ -374,6 +374,8 @@ it swallows keypresses)"
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
 (setq message-citation-line-format "On %a, %b %d %Y at %R, %N wrote:")
 
+(add-to-list 'exec-path "~/dotfiles/bin")
+
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
 
