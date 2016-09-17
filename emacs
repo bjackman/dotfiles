@@ -19,7 +19,7 @@
 
 
 (setq package-list '(helm-projectile projectile f s
-                     solarized-theme fill-column-indicator
+                     solarized-theme fill-column-indicator cider
                      evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
 
 (package-initialize)
