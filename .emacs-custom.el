@@ -44,7 +44,8 @@
  '(require-final-newline t)
  '(safe-local-variable-values
    (quote
-    ((eval progn
+    ((compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache aarch64-linux-gnu-")
+     (eval progn
            (require
             (quote projectile))
            (puthash
