@@ -300,7 +300,7 @@ it swallows keypresses)"
 (defun save-exit-compile ()
   (interactive)
   (exit-evil-and-save)
-  (projectile-compile-project))
+  (projectile-compile-project (projectile-project-root)))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
 (define-skeleton linux-printk-skeleton
