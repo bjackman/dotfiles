@@ -367,16 +367,16 @@ it swallows keypresses)"
         (t (message "Not in diff-mode or mu4e-view-mode"))))
 (global-set-key (kbd "C-c d") 'diff-mode-mu4e-mode)
 
-;; Ain't nobody use the toolbar
-(tool-bar-mode -1)
-;; Or the menu bar
-(menu-bar-mode -1)
-
 ;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
 ;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
 ;; Note we don't have a newline at the end.
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
 (setq message-citation-line-format "On %a, %b %d %Y at %R, %N wrote:")
+
+;; Ain't nobody use the toolbar
+(tool-bar-mode -1)
+;; Or the menu bar
+(menu-bar-mode -1)
 
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
