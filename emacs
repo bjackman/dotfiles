@@ -351,9 +351,13 @@ it swallows keypresses)"
         smtpmail-stream-type 'starttls
         smtpmail-smtp-service 587)
 
-  (setq mu4e-use-fancy-chars t)
+  (setq mu4e-use-fancy-chars t
+        mu4e-view-show-addresses t)
   (load-file "~/.mu4e.el")
-  (require 'evil-mu4e))
+  (require 'evil-mu4e)
+  (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "+" 'mu4e-headers-mark-for-flag)
+  (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "=" 'mu4e-headers-mark-for-unflag)
+  )
 
 (defun diff-mode-mu4e-mode ()
   "Switch between mu4e-view-mode and diff-mode. This is useful for mailing list patches"
