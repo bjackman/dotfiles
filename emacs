@@ -343,6 +343,7 @@ it swallows keypresses)"
         mu4e-trash-folder  "/Trash"
         mu4e-maildir-shortcuts '(("/INBOX" . ?i)
                                  ("/INBOX.linux-pm" . ?l)
+                                 ("/Sent" . ?s)
                                  ("/Drafts" . ?d))
         mu4e-get-mail-command "offlineimap"
         mu4e-update-interval 120
