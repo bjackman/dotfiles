@@ -335,7 +335,6 @@ it swallows keypresses)"
   ;;       smtpmail-smtp-server "smtp.trashbat.cok"
   ;;       smtpmail-smtp-service 587)
 
-  (require 'mu4e)
   (require 'smtpmail)
   (global-set-key (kbd "C-c 4") 'mu4e)
 
@@ -355,6 +354,7 @@ it swallows keypresses)"
         mu4e-view-show-addresses t)
   (load-file "~/.mu4e.el")
   (require 'evil-mu4e)
+  (require 'mu4e)
   (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "+" 'mu4e-headers-mark-for-flag)
   (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "=" 'mu4e-headers-mark-for-unflag)
   )
