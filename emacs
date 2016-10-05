@@ -324,6 +324,8 @@ it swallows keypresses)"
 
 (global-set-key (kbd "C-x O") 'other-frame)
 
+(windmove-default-keybindings)
+
 (when (file-exists-p "~/.mu4e.el")
   ;; My ~/.mu4e.el at work looks like:
 
