@@ -338,7 +338,9 @@ it swallows keypresses)"
   ;;       smtpmail-smtp-service 587)
 
   (require 'smtpmail)
-  (global-set-key (kbd "C-c 4") 'mu4e)
+  (global-set-key (kbd "C-c 4") (lambda () (interactive)
+                                  (delete-other-windows)
+                                  (mu4e)))
 
   (setq mu4e-drafts-folder "/Drafts"
         mu4e-sent-folder   "/Sent"
