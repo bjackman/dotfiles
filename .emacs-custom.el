@@ -44,7 +44,8 @@
  '(require-final-newline t)
  '(safe-local-variable-values
    (quote
-    ((compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache aarch64-linux-gnu-")
+    ((compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache /opt/gcc-linaro-4.9-2015.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-")
+     (compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache aarch64-linux-gnu-")
      (eval progn
            (require
             (quote projectile))
