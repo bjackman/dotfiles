@@ -281,7 +281,7 @@ it swallows keypresses)"
   (interactive)
   (my-serial-term "/dev/ttyUSB0"))
 
-(global-set-key (kbd "<f6>") 'ttyusb0-serial-term)
+(global-set-key (kbd "<f6>") 'ttys0-serial-term)
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
@@ -300,7 +300,7 @@ it swallows keypresses)"
 (defun save-exit-compile ()
   (interactive)
   (exit-evil-and-save)
-  (projectile-compile-project))
+  (projectile-compile-project (projectile-project-root)))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
 (define-skeleton linux-printk-skeleton
@@ -324,6 +324,8 @@ it swallows keypresses)"
 
 (global-set-key (kbd "C-x O") 'other-frame)
 
+(windmove-default-keybindings)
+
 (when (file-exists-p "~/.mu4e.el")
   ;; My ~/.mu4e.el at work looks like:
 
@@ -335,15 +337,18 @@ it swallows keypresses)"
   ;;       smtpmail-smtp-server "smtp.trashbat.cok"
   ;;       smtpmail-smtp-service 587)
 
-  (require 'mu4e)
   (require 'smtpmail)
-  (global-set-key (kbd "C-c 4") 'mu4e)
+  (global-set-key (kbd "C-c 4") (lambda () (interactive)
+                                  (delete-other-windows)
+                                  (mu4e)))
 
   (setq mu4e-drafts-folder "/Drafts"
         mu4e-sent-folder   "/Sent"
         mu4e-trash-folder  "/Trash"
         mu4e-maildir-shortcuts '(("/INBOX" . ?i)
-                                 ("/INBOX.linux-pm" . ?l))
+                                 ("/INBOX.linux-pm" . ?l)
+                                 ("/Sent" . ?s)
+                                 ("/Drafts" . ?d))
         mu4e-get-mail-command "offlineimap"
         mu4e-update-interval 120
         message-send-mail-function 'smtpmail-send-it
@@ -351,9 +356,14 @@ it swallows keypresses)"
         smtpmail-stream-type 'starttls
         smtpmail-smtp-service 587)
 
-  (setq mu4e-use-fancy-chars t)
+  (setq mu4e-use-fancy-chars t
+        mu4e-view-show-addresses t)
   (load-file "~/.mu4e.el")
-  (require 'evil-mu4e))
+  (require 'evil-mu4e)
+  (require 'mu4e)
+  (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "+" 'mu4e-headers-mark-for-flag)
+  (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "=" 'mu4e-headers-mark-for-unflag)
+  )
 
 (defun diff-mode-mu4e-mode ()
   "Switch between mu4e-view-mode and diff-mode. This is useful for mailing list patches"
@@ -363,11 +373,6 @@ it swallows keypresses)"
         (t (message "Not in diff-mode or mu4e-view-mode"))))
 (global-set-key (kbd "C-c d") 'diff-mode-mu4e-mode)
 
-;; Ain't nobody use the toolbar
-(tool-bar-mode -1)
-;; Or the menu bar
-(menu-bar-mode -1)
-
 ;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
 ;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
 ;; Note we don't have a newline at the end.
@@ -375,6 +380,11 @@ it swallows keypresses)"
 (setq message-citation-line-format "On %a, %b %d %Y at %R, %N wrote:")
 
 (add-to-list 'exec-path "~/dotfiles/bin")
+
+;; Ain't nobody use the toolbar
+(tool-bar-mode -1)
+;; Or the menu bar
+(menu-bar-mode -1)
 
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
