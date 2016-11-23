@@ -18,7 +18,7 @@
              '("melpa" . "https://melpa.org/packages/"))
 
 
-(setq package-list '(helm-projectile projectile f s
+(setq package-list '(helm-projectile projectile f s yaml-mode
                      solarized-theme fill-column-indicator cider
                      evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
 
