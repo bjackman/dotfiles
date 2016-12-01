@@ -351,6 +351,7 @@ it swallows keypresses)"
         mu4e-trash-folder  "/Trash"
         mu4e-maildir-shortcuts '(("/INBOX" . ?i)
                                  ("/INBOX.linux-pm" . ?l)
+                                 ("/INBOX.linux-kernel" . ?L)
                                  ("/Sent" . ?s)
                                  ("/Drafts" . ?d))
         mu4e-get-mail-command "offlineimap"
