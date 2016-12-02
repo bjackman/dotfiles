@@ -156,31 +156,6 @@ gfloat() {
     git checkout $(git rev-parse ${1-HEAD})
 }
 
-pretty_log_args="--color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-lg() {
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
-
-    if [[ $1 != "" ]]; then
-        if git rev-parse $1 &>/dev/null; then
-            if [[ $2 != "" ]]; then
-                range_arg="-n $2"
-            fi
-            range_arg="$range_arg $1..HEAD"
-        else
-            range_arg="-n $1"
-        fi
-    else
-        if [ $current_branch == "master" ]; then
-            range_arg="-n 30"
-        else
-            range_arg=master^..HEAD
-        fi
-    fi
-
-    echo git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $range_arg
-}
-
 ####################
 
 find_define() {
