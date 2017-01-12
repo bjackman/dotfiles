@@ -91,6 +91,16 @@ newpdir() {
   pushd $1
 }
 
+newtdir() {
+  dir=$(mktemp -d)
+  cd $dir
+}
+
+newptdir() {
+  dir=$(mktemp -d)
+  pushd $dir
+}
+
 hex2dec() {
   if [ -z `echo $* | grep 0x` ]; then
     printf "%d\n" 0x$*
