@@ -19,7 +19,7 @@
 
 
 (setq package-list '(helm-projectile projectile f s yaml-mode
-                     solarized-theme fill-column-indicator cider
+                     solarized-theme fill-column-indicator cider dts-mode
                      evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
 
 (package-initialize)
@@ -377,6 +377,9 @@ it swallows keypresses)"
         ((eq major-mode 'diff-mode) (mu4e-view-mode))
         (t (message "Not in diff-mode or mu4e-view-mode"))))
 (global-set-key (kbd "C-c d") 'diff-mode-mu4e-mode)
+
+(add-hook 'dts-mode-hook (lambda ()
+                           (setq indent-tabs-mode t)))
 
 ;; The default message-mode citation string is a bit sparse (it just says "Joe Bloggs writes:")
 ;; Make it say "On Monday, 1st Jan 2001 at 11:02, Joe Bloggs wrote:"
