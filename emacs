@@ -350,6 +350,7 @@ it swallows keypresses)"
         mu4e-sent-folder   "/Sent"
         mu4e-trash-folder  "/Trash"
         mu4e-maildir-shortcuts '(("/INBOX" . ?i)
+                                 ("/INBOX.linux-eng" . ?e)
                                  ("/INBOX.linux-pm" . ?l)
                                  ("/INBOX.linux-kernel" . ?L)
                                  ("/Sent" . ?s)
