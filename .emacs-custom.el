@@ -44,7 +44,9 @@
  '(require-final-newline t)
  '(safe-local-variable-values
    (quote
-    ((compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache /opt/gcc-linaro-4.9-2015.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-")
+    ((compilation-environment "PYTHONPATH=/home/brendan/sources/lisa/libs/utils/:/home/brendan/sources/lisa/libs/wlgen/:/home/brendan/sources/lisa/libs/devlib:/home/brendan/sources/lisa/libs/trappy:/home/brendan/sources/lisa/libs/bart")
+     (compilation-environment "PYTHONPATH=/home/brendan/sources/lisa/libs/utils/:/home/brendan/sources/lisa/libs/wlgen/:/home/brendan/sources/lisa/")
+     (compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache /opt/gcc-linaro-4.9-2015.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-")
      (compilation-environment "ARCH=arm64" "CCACHE_DIR=/work/ccache" "CROSS_COMPILE=ccache aarch64-linux-gnu-")
      (eval progn
            (require
