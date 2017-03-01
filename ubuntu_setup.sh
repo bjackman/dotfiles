@@ -2,9 +2,13 @@
 
 set -eu
 
-cmd="sudo usermod -aG dialout "$USER""
-echo $cmd
-$cmd
+echo "This hasn't been tested. Read it first." && exit 1
+
+for group in dialout plugdev; do
+    cmd="sudo usermod -aG $group "$USER""
+    echo $cmd
+    $cmd
+done
 
 XORG_CONF_D=/usr/share/X11/xorg.conf.d
 if [ ! -d "$XORG_CONF_D" ]; then
