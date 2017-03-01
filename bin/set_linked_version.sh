@@ -15,7 +15,7 @@ set -eu
 
 SCRIPT_DIR=$(dirname ${BASH_SOURCE[0]})
 
-TARGET_DIR=~/sources/linux-$1
+TARGET_DIR=~/sources/$1
 
 if [ ! -d $TARGET_DIR ]; then
    echo No such dir $TARGET_DIR
