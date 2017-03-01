@@ -170,8 +170,8 @@ gfloat() {
 gll() {
     local branch=${1-HEAD}
     local base=$branch
-    for _ in $(seq 3); do
-        base=$(git describe --match "v*" --abbrev=0 $base^)
+    while [ $(git rev-list --first-parent --count "$base".."$branch") -le "${GLL_NCOMMITS-1}" ]; do
+        base=$(git describe --first-parent --match "v*" --abbrev=0 $base^)
     done
 
     git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' $base..$branch
