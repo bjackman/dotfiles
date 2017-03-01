@@ -394,6 +394,9 @@ it swallows keypresses)"
 (tool-bar-mode -1)
 ;; Or the menu bar
 (menu-bar-mode -1)
+;; Or the scroll bars
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
 
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
