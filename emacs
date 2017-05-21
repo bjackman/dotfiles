@@ -200,7 +200,7 @@
 (global-set-key (kbd "C-c s") 'sort-lines)
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-c f") 'ffap)
+(global-set-key (kbd "C-c f") 'find-function)
 
 ; Insert current filename in minibuffer with f3
 (define-key minibuffer-local-map [f3]
