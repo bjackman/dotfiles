@@ -180,6 +180,9 @@
       (back-to-indentation)
       (indent-for-tab-command))))
 
+;; M-. is useful for lispy stuff, remove it from evil stuff
+(define-key evil-normal-state-map (kbd "M-.") nil)
+
 (require 'tex-mode)
 (defun latex-word-count ()
   (interactive)
