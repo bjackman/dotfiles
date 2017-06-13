@@ -25,4 +25,4 @@ fi
 ln -sf $TARGET_DIR/arch/arm64/boot/dts/arm/juno.dtb $SCRIPT_DIR
 ln -sf $TARGET_DIR/arch/arm64/boot/Image $SCRIPT_DIR
 
-ls -l $SCRIPT_DIR
+ls -l --color=auto $SCRIPT_DIR
