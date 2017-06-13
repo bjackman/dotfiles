@@ -36,3 +36,5 @@
 	path = ~/.local_gitconfig
 [sendemail]
 	suppressFrom = true
+[http]
+	cookiefile = /home/brendan/.gitcookies
