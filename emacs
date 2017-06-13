@@ -417,6 +417,18 @@ it swallows keypresses)"
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
 (setq message-citation-line-format "On %a, %b %d %Y at %R, %N wrote:")
 
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#emacs")
+        ("irc.oftc.net" "#sched")
+        ("pdtl-ubuntu-1.cambridge.arm.com" "#power" "#pdsw")))
+
+(defun brendan/start-erc ()
+  "Start ERC and join the usual channels"
+  (interactive)
+  (erc :server "pdtl-ubuntu-1.cambridge.arm.com" :nick "bjackman")
+  (erc :server "irc.oftc.net" :nick "bjackman"))
+(global-set-key (kbd "C-c 5") 'brendan/start-erc)
+
 (add-to-list 'exec-path "~/dotfiles/bin")
 
 ;; Ain't nobody use the toolbar
