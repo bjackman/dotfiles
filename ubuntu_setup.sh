@@ -2,7 +2,7 @@
 
 set -eu
 
-echo "This hasn't been tested. Read it first." && exit 1
+# echo "This hasn't been tested. Read it first." && exit 1
 
 for group in dialout plugdev; do
     cmd="sudo usermod -aG $group "$USER""
