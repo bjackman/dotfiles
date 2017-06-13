@@ -23,3 +23,5 @@ else
     echo "Writing $xorg_conf_file so you can zap X11 with ctrl+alt+backspace"
     sudo cp ~/dotfiles/xorg.conf "$xorg_conf_file"
 fi
+
+pkgs="build-essential"
