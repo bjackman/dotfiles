@@ -334,6 +334,26 @@ it swallows keypresses)"
 
 (windmove-default-keybindings)
 
+
+(defun mu4e-action-git-apply-patch (msg)
+  "Apply the git [patch] message."
+  (let ((path (ido-read-directory-name "Target directory: "
+                                       (car ido-work-directory-list)
+                                       "~/" t)))
+    (setf ido-work-directory-list
+          (cons path (delete path ido-work-directory-list)))
+    (message (mu4e-message-field msg :path))
+    (shell-command
+     (format "cd %s; git am < %s"
+             path
+             (mu4e-message-field msg :path)))))
+
+(defun mu4e-action-save-msg-file (msg)
+  "Save the message to a file"
+  (let ((path (expand-file-name (read-file-name))))
+    (shell-command
+     (format "cp %s; %s" (mu4e-message-field msg :path) path))))
+
 (when (file-exists-p "~/.mu4e.el")
   ;; My ~/.mu4e.el at work looks like:
 
@@ -373,7 +393,12 @@ it swallows keypresses)"
   (require 'mu4e)
   (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "+" 'mu4e-headers-mark-for-flag)
   (evil-define-key evil-mu4e-state 'mu4e-headers-mode-map "=" 'mu4e-headers-mark-for-unflag)
-  )
+
+  (add-to-list 'mu4e-headers-actions
+               '("Save message" . mu4e-action-save-msg-file) t)
+
+  (add-to-list 'mu4e-headers-actions
+               '("Apply patch" . mu4e-action-git-apply-patch) t))
 
 (defun diff-mode-mu4e-mode ()
   "Switch between mu4e-view-mode and diff-mode. This is useful for mailing list patches"
