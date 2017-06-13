@@ -231,6 +231,10 @@ beginning of the function name"
                (c-tab-always-indent . nil)
                (tab-always-indent . nil)))
 
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (other . "linux")))
+
 (when (boundp 'save-some-buffers-action-alist)
   (setq save-some-buffers-action-alist
         (cons
