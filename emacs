@@ -6,8 +6,8 @@
 ;; do this (with Custom)
 (require 'package)
 
-;;(push '("marmalade" . "http://marmalade-repo.org/packages/")
-;;      package-archives )
+(push '("marmalade" . "http://marmalade-repo.org/packages/")
+      package-archives )
 ;;(add-to-list 'package-archives
 ;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;;(push '("melpa" . "http://melpa.milkbox.net/packages/")
