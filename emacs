@@ -442,6 +442,9 @@ it swallows keypresses)"
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 
+;; Try to stop emacs creating those annoying .#foo backup files
+(setq backup-directory-alist `(("." . "~/.saves")))
+
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
 
