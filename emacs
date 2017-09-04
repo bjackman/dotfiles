@@ -6,17 +6,19 @@
 ;; do this (with Custom)
 (require 'package)
 
-(push '("marmalade" . "http://marmalade-repo.org/packages/")
-      package-archives )
+;; (push '("marmalade" . "http://marmalade-repo.org/packages/")
+;;       package-archives )
 ;;(add-to-list 'package-archives
 ;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;;(push '("melpa" . "http://melpa.milkbox.net/packages/")
 ;;       package-archives)
 ;;(push '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
 ;;      package-archives)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
 
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+  (add-to-list 'package-archives (cons "melpa" url) t))
 
 (setq package-list '(helm-projectile projectile f s yaml-mode
                      solarized-theme fill-column-indicator cider dts-mode
