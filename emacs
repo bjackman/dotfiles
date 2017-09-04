@@ -435,6 +435,7 @@ it swallows keypresses)"
 (global-set-key (kbd "C-c 5") 'brendan/start-erc)
 
 (add-to-list 'exec-path "~/dotfiles/bin")
+(add-to-list 'exec-path "~/.cargo/bin")
 
 ;; Ain't nobody use the toolbar
 (tool-bar-mode -1)
