@@ -106,8 +106,14 @@ my_prompt_command() {
 	local shlvl=
     fi
 
+    if [ -n "$VIRTUAL_ENV" ]; then
+        local venv=" <\[$Purple\]$(basename "$VIRTUAL_ENV")\[$Color_Off\]>"
+    else
+        local venv=""
+    fi
+
     PROMPT_PRE="\n$exit_code_bit\[$hostname_colour\]\h \[$BWhite\]\w\[$Color_Off\]"
-    PROMPT_SUF="$shlvl\n\[$BWhite\]$ \[$Color_Off\]"
+    PROMPT_SUF="$shlvl$venv\n\[$BWhite\]$ \[$Color_Off\]"
 
     __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
 }
