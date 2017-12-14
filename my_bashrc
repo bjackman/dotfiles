@@ -276,7 +276,7 @@ if [[ -f ~/.local_bashrc ]]; then
   source ~/.local_bashrc
 fi
 
-if which fortune > /dev/null && which cowsay > /dev/null; then
+if which fortune >/dev/null 2>/dev/null && which cowsay >/dev/null 2>/dev/null; then
     fortune | cowsay
 else
     cat <<EOF
