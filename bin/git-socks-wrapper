@@ -8,5 +8,5 @@
 #
 # Configuration.
 _proxy=localhost
-_proxyport=8119
-exec socat STDIO SOCKS4:$_proxy:$1:$2,socksport=$_proxyport
+_proxyport=8123
+exec socat STDIO SOCKS5:$_proxy:$1:$2,socksport=$_proxyport
