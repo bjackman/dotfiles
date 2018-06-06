@@ -174,7 +174,7 @@ gll() {
         base=$(git describe --first-parent --match "v*" --abbrev=0 $base^)
     done
 
-    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' $base..$branch
+    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(blue)<%cn>%Creset' $base..$branch
 }
 
 ####################
