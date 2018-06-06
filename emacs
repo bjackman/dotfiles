@@ -434,6 +434,9 @@ it swallows keypresses)"
   (erc :server "irc.oftc.net" :nick "bjackman"))
 (global-set-key (kbd "C-c 5") 'brendan/start-erc)
 
+;; For html
+(setq sgml-basic-offset 4)
+
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 
