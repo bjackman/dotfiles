@@ -294,7 +294,7 @@ it swallows keypresses)"
   (interactive)
   (my-serial-term "/dev/ttyUSB0"))
 
-(global-set-key (kbd "<f6>") 'ttys0-serial-term)
+;; (global-set-key (kbd "<f6>") 'ttys0-serial-term)
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
