@@ -64,9 +64,9 @@ if [[ -f /etc/lsb-release ]]; then
   source /etc/lsb-release
   case $DISTRIB_ID in
     "Ubuntu")
-      alias update="sudo apt-get update && sudo apt-get upgrade"
-      alias install="sudo apt-get install -y "
-      alias uninstall="sudo apt-get remove -y "
+      alias update="sudo apt update && sudo apt upgrade"
+      alias install="sudo apt install -y "
+      alias uninstall="sudo apt remove -y "
       ;;
     "Fedora")
       alias update="sudo yum update"

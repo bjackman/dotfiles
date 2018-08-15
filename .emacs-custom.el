@@ -63,6 +63,7 @@
      (c-default-style . "linux")
      (indent-tabs-mode t)
      (compilation-environment "ARCH=arm64" "CROSS_COMPILE=aarch64-linux-gnu-"))))
+ '(sgml-basic-offset 4)
  '(standard-indent 4)
  '(vc-follow-symlinks t))
 (custom-set-faces

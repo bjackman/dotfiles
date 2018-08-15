@@ -294,7 +294,7 @@ it swallows keypresses)"
   (interactive)
   (my-serial-term "/dev/ttyUSB0"))
 
-(global-set-key (kbd "<f6>") 'ttys0-serial-term)
+;; (global-set-key (kbd "<f6>") 'ttys0-serial-term)
 
 (defvar arduino-serial-buffer nil)
 (defvar arduino-serial-file nil)
@@ -312,7 +312,8 @@ it swallows keypresses)"
 
 (defun save-exit-compile ()
   (interactive)
-  (exit-evil-and-save)
+  (if buffer-file-name
+    (exit-evil-and-save))
   (projectile-compile-project (projectile-project-root)))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
