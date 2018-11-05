@@ -109,6 +109,8 @@
     (multi-compile-run)))
 ;; This overrides projectile-commander (which I never use)
 (define-key projectile-mode-map (kbd "C-c p m") 'multi-compile-projectile)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 ;; Make any value safe for file-local and dir-local multi-compile-alist
 (put 'multi-compile-alist 'safe-local-variable
      (lambda (x) t))
