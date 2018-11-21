@@ -451,6 +451,10 @@ it swallows keypresses)"
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 
+;; Don't make an annoying noise every time I try to backspace past a prompt or some shit
+;; Flash the screen very annoyingly instead
+(setq visible-bell t)
+
 ;; Try to stop emacs creating those annoying .#foo backup files
 (setq backup-directory-alist `(("." . "~/.saves")))
 
