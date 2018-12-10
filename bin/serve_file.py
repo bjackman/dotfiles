@@ -14,14 +14,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if os.path.isfile(args.path):
-        directory = os.path.dirname(args.path)
-    else:
-        directory = args.path
-
-    if directory: # Might be empty string now
-        os.chdir(directory)
-
     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
     Handler.extensions_map.update({
         '': 'text/plain',
@@ -33,5 +25,6 @@ if __name__ == "__main__":
                                                              args.port,
                                                              args.path))
 
+    SocketServer.TCPServer.allow_reuse_address = True
     httpd = SocketServer.TCPServer(("", args.port), Handler)
     httpd.serve_forever()
