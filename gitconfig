@@ -19,6 +19,7 @@
 	renames = copies
 	mnemonicprefix = false
 	wsErrorHighlight = all
+	tool = meld
 [help]
 	autocorrect = 3
 [color]
