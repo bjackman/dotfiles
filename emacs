@@ -319,6 +319,11 @@ it swallows keypresses)"
   (projectile-compile-project (projectile-project-root)))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
+(defun pyflakes ()
+  (interactive)
+  (compile (concat "pyflakes " buffer-file-name)))
+(global-set-key (kbd "<f6>") 'pyflakes)
+
 (define-skeleton linux-printk-skeleton
   "Inserts a Linux printk call with the function name"
   nil "printk(\"%s: " _ "\\n\", __func__\);" >) ; NEAR
