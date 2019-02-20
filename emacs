@@ -321,6 +321,7 @@ it swallows keypresses)"
 
 (defun pyflakes ()
   (interactive)
+  (evil-exit-and-save)
   (compile (concat "pyflakes " buffer-file-name)))
 (global-set-key (kbd "<f6>") 'pyflakes)
 
