@@ -9,7 +9,7 @@ from socket import gethostname
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('-p', '--port', default=8080, type=int)
+    parser.add_argument('-p', '--port', default=0, type=int)
     parser.add_argument('path')
 
     args = parser.parse_args()
@@ -21,10 +21,13 @@ if __name__ == "__main__":
         '.gz': 'application/x-gzip',
     });
 
-    print('Starting HTTP server, try http://{}:{}/{}'.format(gethostname(),
-                                                             args.port,
-                                                             args.path))
-
     SocketServer.TCPServer.allow_reuse_address = True
     httpd = SocketServer.TCPServer(("", args.port), Handler)
+
+    _addr, port = httpd.server_address
+    print('Starting HTTP server, try http://{}:{}/{}'.format(gethostname(),
+                                                             port,
+                                                             args.path))
+
+
     httpd.serve_forever()
