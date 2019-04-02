@@ -7,5 +7,8 @@ set output-radix 0x10
 
 set print pretty on
 
+macro define offsetof(_type, _memb) ((long)(&((_type *)0)->_memb))
+macro define container_of(_ptr, _type, _memb) ((_type *)((void *)(_ptr) - offsetof(_type, _memb)))
+
 # source ~/dotfiles/colors.gdb
 
