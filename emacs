@@ -456,6 +456,10 @@ it swallows keypresses)"
 ;; Or the scroll bars
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
+;; Ain't nobody want Emacs to minimize itself when you accidentally hit C-x C-z
+(put 'suspend-frame 'disabled t)
+
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 
 ;; Don't make an annoying noise every time I try to backspace past a prompt or some shit
 ;; Flash the screen very annoyingly instead
