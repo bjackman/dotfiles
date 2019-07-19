@@ -118,7 +118,7 @@ my_prompt_command() {
     if [ $PROMPT_DO_GIT == 1 ]; then
         __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
     else
-        echo "$PROMPT_PRE (git off) $PROMPT_SUF"
+        PS1="$PROMPT_PRE (git off) $PROMPT_SUF"
     fi
 }
 
