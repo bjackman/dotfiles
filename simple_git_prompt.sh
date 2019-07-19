@@ -115,18 +115,12 @@ my_prompt_command() {
     PROMPT_PRE="\n$exit_code_bit\[$hostname_colour\]\h \[$BWhite\]\w\[$Color_Off\]"
     PROMPT_SUF="$shlvl$venv\n\[$BWhite\]$ \[$Color_Off\]"
 
-    __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
+    if [ $PROMPT_DO_GIT == 1 ]; then
+        __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
+    else
+        echo "$PROMPT_PRE (git off) $PROMPT_SUF"
+    fi
 }
 
-prompt_on() {
-    PROMPT_COMMAND=my_prompt_command
-}
-
-prompt_off() {
-    PROMPT_COMMAND=
-    exit_code_bit=
-    PS1="$PROMPT_PRE (off) $PROMPT_SUF"
-}
-
-prompt_on
-
+PROMPT_COMMAND=my_prompt_command
+PROMPT_DO_GIT=1
