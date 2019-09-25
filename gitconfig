@@ -41,6 +41,7 @@
         smtpencryption = tls
         smtpuser = bhenryj0117@gmail.com
         from = bhenryj0117@gmail.com
+        confirm = always
 
 [http]
 	cookiefile = /home/brendan/.gitcookies
