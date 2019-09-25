@@ -1,10 +1,10 @@
 [user]
-	email = brendan.jackman@bluwirelesstechnology.com
+	email = bhenryj0117@gmail.com
 	name = Brendan Jackman
 [core]
 	editor = emacsclient
 	preloadindex = true
-	excludesfile = /home/brejac01/dotfiles/global_gitignore
+	excludesfile = /home/brendan/dotfiles/global_gitignore
 [push]
 	default = upstream
 [alias]
@@ -36,6 +36,13 @@
 [include]
 	path = ~/.local_gitconfig
 [sendemail]
-	suppressFrom = true
+        smtpserver = smtp.gmail.com
+        smtpserverport = 587
+        smtpencryption = tls
+        smtpuser = bhenryj0117@gmail.com
+        from = bhenryj0117@gmail.com
+
 [http]
 	cookiefile = /home/brendan/.gitcookies
+[credential]
+	helper = libsecret
