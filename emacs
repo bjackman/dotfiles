@@ -31,8 +31,6 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(load-file "~/dotfiles/hoon-mode.el")
-
 (global-visual-line-mode t)
 
 ;; because fuck typing 3 whole characters
