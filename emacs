@@ -376,22 +376,18 @@ it swallows keypresses)"
   ;;       smtpmail-default-smtp-server "smtp.trashbat.cok"
   ;;       smtpmail-smtp-server "smtp.trashbat.cok"
   ;;       smtpmail-smtp-service 587)
+  ;;
+  ;; For my gmail:
+  ;; don't save messages to Sent Messages, Gmail/IMAP takes care of this
+  (setq mu4e-sent-messages-behavior 'delete)
 
   (require 'smtpmail)
   (global-set-key (kbd "C-c 4") (lambda () (interactive)
                                   (delete-other-windows)
                                   (mu4e)))
 
-  (setq mu4e-drafts-folder "/Drafts"
-        mu4e-sent-folder   "/Sent"
-        mu4e-trash-folder  "/Trash"
-        mu4e-maildir-shortcuts '(("/INBOX" . ?i)
-                                 ("/INBOX.linux-eng" . ?e)
-                                 ("/INBOX.linux-pm" . ?l)
-                                 ("/INBOX.linux-kernel" . ?L)
-                                 ("/Sent" . ?s)
-                                 ("/Drafts" . ?d))
-        mu4e-get-mail-command "offlineimap"
+  (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i))
+        mu4e-get-mail-command "mbsync -m chromium"
         mu4e-update-interval 120
         message-send-mail-function 'smtpmail-send-it
         ;; I think the following are pretty standard for SMTP in 2016
