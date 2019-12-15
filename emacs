@@ -81,11 +81,10 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c m b") 'magit-blame)
 (global-set-key (kbd "C-c m l") 'magit-log-buffer-file)
-(magit-define-popup-option 'magit-patch-popup ?S "Subject Prefix" "--subject-prefix=")
 (defun brendan/magit-float-head ()
   (interactive)
   (magit-checkout (magit-rev-parse "HEAD")))
-(magit-define-popup-action 'magit-branch-popup ?f "Float HEAD" 'brendan/magit-float-head)
+(transient-append-suffix 'magit-branch "x" '("f" "Float HEAD" brendan/magit-float-head))
 
 ;; There's a bad interaction between vc and magit, where they compete for the
 ;; git lock. Workaround for that:
