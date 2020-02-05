@@ -154,7 +154,7 @@
     (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
-(defun exit-evil-and-save ()
+(defun evil-exit-and-save ()
   (interactive)
   (evil-normal-state)
   (save-buffer))
@@ -313,8 +313,8 @@ it swallows keypresses)"
 (defun save-exit-compile ()
   (interactive)
   (if buffer-file-name
-    (exit-evil-and-save))
-  (projectile-compile-project (projectile-project-root)))
+    (evil-exit-and-save))
+  (compile compile-command))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
 (defun pyflakes ()
