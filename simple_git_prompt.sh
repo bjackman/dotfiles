@@ -123,4 +123,4 @@ my_prompt_command() {
 }
 
 PROMPT_COMMAND=my_prompt_command
-PROMPT_DO_GIT=1
+PROMPT_DO_GIT=0
