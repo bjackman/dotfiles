@@ -466,5 +466,5 @@ it swallows keypresses)"
 (load custom-file)
 
 (set-face-attribute 'default nil :height 110) ;; God reads in 11pt
-(load-theme 'solarized-dark)
+(load-theme 'tango-dark)
 (server-start)
