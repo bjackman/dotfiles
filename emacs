@@ -467,3 +467,41 @@ it swallows keypresses)"
 (set-face-attribute 'default nil :height 110) ;; God reads in 11pt
 (load-theme 'tango-dark)
 (server-start)
+
+;;
+;; BEGIN GOOGLE-SPECIFIC SHIT
+;;
+
+;; Two space indents.
+(set-variable 'typescript-indent-level 2)
+;; Use the Google3 version of TypeScript.
+(set-variable 'tide-tsserver-directorxy
+              (concat "/google/src/head/depot/google3"
+                      "/third_party/javascript/node_modules"
+                      "/typescript/stable/lib"))
+
+(require 'google3-eglot)
+(google3-eglot-setup)
+(add-to-list 'eglot-stay-out-of 'imenu)
+(global-set-key (kbd "C-c g") 'fig-status)
+
+(with-eval-after-load 'fig
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal fig-mode-map
+      (kbd "RET") 'fig-visit-thing
+      (kbd "TAB") 'fig-section-toggle)
+    (evil-define-key 'normal fig-status-mode-map
+      "B" 'fig-bookmark-popup
+      "c" 'fig-commit-popup
+      "g?" 'fig-status-dispatch-popup
+      "f" 'fig-fix-popup
+      "F" 'fig-pull-popup
+      "P" 'fig-push-popup
+      "r" 'fig-rebase-popup
+      "R" 'fig-mail-popup
+      "T" 'fig-tag-popup
+      "_" 'fig-revert-popup
+      "!" 'fig-open-shell
+      "z" 'fig-shelve-popup
+      "`" 'fig-process-buffer
+      "?" 'fig-status-dispatch-popup)))
