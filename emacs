@@ -387,7 +387,7 @@ it swallows keypresses)"
                                   (mu4e)))
 
   (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i))
-        mu4e-get-mail-command "mbsync -m chromium"
+        mu4e-get-mail-command "mbsync chromium"
         mu4e-update-interval 120
         message-send-mail-function 'smtpmail-send-it
         ;; I think the following are pretty standard for SMTP in 2016
