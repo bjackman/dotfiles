@@ -47,3 +47,6 @@
 	cookiefile = /home/brendan/.gitcookies
 [credential]
 	helper = libsecret
+
+[url "sso://user"]
+	  insteadof = https://user.git.corp.google.com
