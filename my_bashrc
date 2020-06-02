@@ -166,6 +166,10 @@ gfloat() {
     git checkout $(git rev-parse ${1-HEAD})
 }
 
+alias hrc="hg resolve --mark && hg rebase --continue"
+alias hua="hg uploadall --will-update-only"
+alias hgskip="hg revert -r.^ . && hg resolve --mark . && hg rebase --continue"
+
 # Log with graph and shit but without being hella slow on kernel repos
 gll() {
     local branch=${1-HEAD}
