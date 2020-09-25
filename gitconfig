@@ -1,5 +1,5 @@
 [user]
-	email = bhenryj0117@gmail.com
+	email = jackmanb@chromium.org
 	name = Brendan Jackman
 [core]
 	editor = emacsclient
@@ -36,12 +36,10 @@
 [include]
 	path = ~/.local_gitconfig
 [sendemail]
-        smtpserver = smtp.gmail.com
-        smtpserverport = 587
-        smtpencryption = tls
-        smtpuser = bhenryj0117@gmail.com
-        from = bhenryj0117@gmail.com
-        confirm = always
+	From = Brendan Jackman <jackmanb@chromium.org>
+	smtpServer = /tmp/sendgmail
+	smtpServerOption = -sender=jackmanb@chromium.org
+	confirm = always
 
 [http]
 	cookiefile = /home/brendan/.gitcookies
