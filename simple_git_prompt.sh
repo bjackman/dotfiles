@@ -120,6 +120,8 @@ my_prompt_command() {
     else
         PS1="$PROMPT_PRE (git off) $PROMPT_SUF"
     fi
+
+    history -a
 }
 
 PROMPT_COMMAND=my_prompt_command
