@@ -115,7 +115,10 @@ my_prompt_command() {
     PROMPT_PRE="\n$exit_code_bit\[$hostname_colour\]\h \[$BWhite\]\w\[$Color_Off\]"
     PROMPT_SUF="$shlvl$venv\n\[$BWhite\]$ \[$Color_Off\]"
 
-    if [ $PROMPT_DO_GIT == 1 ]; then
+
+    if [[ $PWD =~ "google3" ]]; then
+        PS1="$PROMPT_PRE (google3) $PROMPT_SUF"
+    elif [ $PROMPT_DO_GIT == 1 ]; then
         __git_ps1 "$PROMPT_PRE" "$PROMPT_SUF"
     else
         PS1="$PROMPT_PRE (git off) $PROMPT_SUF"
@@ -123,4 +126,4 @@ my_prompt_command() {
 }
 
 PROMPT_COMMAND=my_prompt_command
-PROMPT_DO_GIT=0
+PROMPT_DO_GIT=1
