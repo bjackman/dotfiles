@@ -73,7 +73,7 @@
 
 ;; open .emacs
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file user-init-file)))
-(global-set-key (kbd "C-c r e") (lambda () (interactive) (load-file "~/.emacs")))
+(global-set-key (kbd "C-c r e") (lambda () (interactive) (load-file "~/dotfiles/emacs")))
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
 
