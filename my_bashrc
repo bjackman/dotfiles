@@ -167,7 +167,13 @@ gfloat() {
 }
 
 alias hrc="hg resolve --mark && hg rebase --continue"
+alias hhc="hg resolve --mark && hg histedit --continue"
+alias hec="hg resolve --mark && hg evolve --continue"
+alias heu="hg evolve --update"
+alias hrm="hg resolve --mark ."
 alias hua="hg uploadall --will-update-only"
+alias hsa="hg sync --all"
+alias hsu="hg sync --all && hg uploadall --will-update-only"
 alias hgskip="hg revert -r.^ . && hg resolve --mark . && hg rebase --continue"
 
 # Log with graph and shit but without being hella slow on kernel repos
