@@ -483,7 +483,12 @@ it swallows keypresses)"
 (require 'google3-eglot)
 (google3-eglot-setup)
 (add-to-list 'eglot-stay-out-of 'imenu)
-(global-set-key (kbd "C-c g") 'fig-status)
+;; (global-set-key (kbd "C-c g") 'fig-status)
+
+;; https://groups.google.com/a/google.com/forum/#!topic/emacs-users/is4EzvY-mTc
+(remove-hook 'find-file-hook 'p4-update-status)
+(remove-hook 'find-file-hook 'google-load-p4-if-useful-hook)
+(setq vc-handled-backends nil)  ;; disable vc-mode
 
 (with-eval-after-load 'fig
   (with-eval-after-load 'evil
