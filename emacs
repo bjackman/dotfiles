@@ -20,7 +20,7 @@
        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
   (add-to-list 'package-archives (cons "melpa" url) t))
 
-(setq package-list '(helm-projectile projectile f s yaml-mode
+(setq package-list '(helm-projectile projectile f s yaml-mode go-mode
                      solarized-theme fill-column-indicator cider dts-mode
                      evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
 
@@ -439,6 +439,10 @@ it swallows keypresses)"
 
 ;; For html
 (setq sgml-basic-offset 4)
+
+(defun my-go-mode-hook ()
+  ; Call Gofmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
