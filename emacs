@@ -439,6 +439,10 @@ it swallows keypresses)"
 ;; For html
 (setq sgml-basic-offset 4)
 
+(defun my-go-mode-hook ()
+  ; Call Gofmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 
