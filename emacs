@@ -153,7 +153,7 @@
     (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
-(defun exit-evil-and-save ()
+(defun evil-exit-and-save ()
   (interactive)
   (evil-normal-state)
   (save-buffer))
@@ -312,15 +312,16 @@ it swallows keypresses)"
 (defun save-exit-compile ()
   (interactive)
   (if buffer-file-name
-    (exit-evil-and-save))
-  (projectile-compile-project (projectile-project-root)))
+    (evil-exit-and-save))
+  (compile compile-command))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
-(defun pyflakes ()
+(defun save-run ()
   (interactive)
-  (evil-exit-and-save)
-  (compile (concat "pyflakes " buffer-file-name)))
-(global-set-key (kbd "<f6>") 'pyflakes)
+  (if buffer-file-name
+      (save-buffer))
+  (projectile-run-project nil))
+(global-set-key (kbd "<f6>") 'save-run)
 
 (define-skeleton linux-printk-skeleton
   "Inserts a Linux printk call with the function name"
@@ -386,7 +387,7 @@ it swallows keypresses)"
                                   (mu4e)))
 
   (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i))
-        mu4e-get-mail-command "mbsync -m chromium"
+        mu4e-get-mail-command "mbsync chromium"
         mu4e-update-interval 120
         message-send-mail-function 'smtpmail-send-it
         ;; I think the following are pretty standard for SMTP in 2016
@@ -439,10 +440,6 @@ it swallows keypresses)"
 ;; For html
 (setq sgml-basic-offset 4)
 
-(defun my-go-mode-hook ()
-  ; Call Gofmt before saving
-  (add-hook 'before-save-hook 'gofmt-before-save))
-
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 
@@ -468,6 +465,6 @@ it swallows keypresses)"
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
 
-(set-face-attribute 'default nil :height 110) ;; God reads in 11pt
+(set-face-attribute 'default nil :height 120) ;; God reads in 11pt
 (load-theme 'solarized-dark)
 (server-start)
