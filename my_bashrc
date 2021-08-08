@@ -195,7 +195,7 @@ alias gdb="gdb -q"
 alias bashrc="source ~/.bashrc"
 alias edit_bashrc='$GRAPHICAL_EDITOR ~/dotfiles/my_bashrc'
 alias trash="trash-put"
-alias webserver="python -m SimpleHTTPServer 8080 "
+alias webserver="python3 -m http.server"
 alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "
