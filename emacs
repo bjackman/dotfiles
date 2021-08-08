@@ -442,7 +442,9 @@ it swallows keypresses)"
 
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
+  (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
