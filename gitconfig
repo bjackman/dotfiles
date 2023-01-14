@@ -2,7 +2,6 @@
 	email = bhenryj0117@gmail.com
 	name = Brendan Jackman
 [core]
-	editor = emacsclient
 	preloadindex = true
 	excludesfile = /home/brendan/dotfiles/global_gitignore
 [push]
