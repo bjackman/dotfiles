@@ -22,7 +22,7 @@
 
 (setq package-list '(helm-projectile projectile f s yaml-mode
                      solarized-theme fill-column-indicator cider dts-mode
-                     evil evil-mu4e async magit tabbar-ruler ggtags evil-magit))
+                     evil evil-mu4e async magit tabbar-ruler ggtags evil-collection))
 
 (package-initialize)
 (unless package-archive-contents
@@ -72,7 +72,7 @@
   (term-line-mode)))
 
 ;; open .emacs
-(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file user-init-file)))
+(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/dotfiles/emacs")))
 (global-set-key (kbd "C-c r e") (lambda () (interactive) (load-file "~/dotfiles/emacs")))
 ;; so that dotfiles/emacs gets opened as emacs lisp
 (setq auto-mode-alist (cons '("emacs" . emacs-lisp-mode) auto-mode-alist))
@@ -131,10 +131,15 @@
 (add-hook 'markdown-mode-hook 'visual-line-mode)
 
 
+(setq evil-want-integration t)
+(setq evil-want-keybinding nil)
 (require 'evil)
 (evil-mode 1)
 (evil-set-initial-state 'term-mode 'emacs)
-(require 'evil-magit)
+(evil-set-initial-state 'undo-tree-mode 'emacs)
+(evil-collection-init)
+
+(global-undo-tree-mode t)
 
 ;; No fucking idea how this works, but it maps kj to exit insert mode in Evil. Apparently.
 (define-key evil-insert-state-map "k" #'cofi/maybe-exit)
@@ -217,7 +222,6 @@
 (define-key org-mode-map (kbd "RET") 'org-return-indent)
 (setq org-log-done t)
 
-(add-hook 'c-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'fci-mode)
 
 (defun my-c-lineup-arglist-intro-after-func (langelem)
@@ -479,6 +483,9 @@ it swallows keypresses)"
               (concat "/google/src/head/depot/google3"
                       "/third_party/javascript/node_modules"
                       "/typescript/stable/lib"))
+
+;; 80-char indicator for C++
+(add-hook 'cc-mode-hook 'display-fill-column-indicator-mode)
 
 (require 'google3-eglot)
 (google3-eglot-setup)

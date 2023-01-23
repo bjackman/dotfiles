@@ -175,6 +175,13 @@ alias hua="hg uploadall --will-update-only"
 alias hsa="hg sync --all"
 alias hsu="hg sync --all && hg uploadall --will-update-only"
 alias hgskip="hg revert -r.^ . && hg resolve --mark . && hg rebase --continue"
+alias hup="hg update p4head"
+alias hrp="hg rebase -r. -dp4head"
+alias hrir="hg revert -i -r .^"
+alias hrirp="hg revert -i -r p4head"
+alias hap="hg amend && hg presubmit -d"
+alias hp="hg presubmit -d"
+alias hrt="hg rebase -d tip"
 
 # Log with graph and shit but without being hella slow on kernel repos
 gll() {
@@ -210,6 +217,7 @@ alias disassemble='${CROSS_COMPILE}objdump -d '
 
 alias ls="ls --color=auto "
 
+alias pastebin=/google/src/head/depot/eng/tools/pastebin
 em() {
   if pgrep emacs > /dev/null; then
     emacsclient --no-wait $*
