@@ -153,6 +153,8 @@ alias gap="git add -p "
 
 alias gcam="git commit -am "
 alias gcamend="git commit --amend"
+alias gcaamend="git commit -a --amend"
+alias gcaan="git commit -a --amend --no-edit"
 alias gcm="git commit -m "
 alias gsign="git commit --amend --signoff --no-edit "
 
