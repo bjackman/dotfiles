@@ -47,4 +47,6 @@
 	helper = libsecret
 
 [url "sso://user"]
-	  insteadof = https://user.git.corp.google.com
+ 	 insteadof = https://user.git.corp.google.com
+[checkout]
+ 	workers = 0  # use num_cpu
