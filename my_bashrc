@@ -168,6 +168,7 @@ alias grhard="git reset --hard "
 gfloat() {
     git checkout $(git rev-parse ${1-HEAD})
 }
+alias grc='git rebase --continue'
 
 alias hrc="hg resolve --mark && hg rebase --continue"
 alias hhc="hg resolve --mark && hg histedit --continue"
