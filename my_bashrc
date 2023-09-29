@@ -163,6 +163,7 @@ alias gc="git checkout "
 alias gcb="git checkout -b"
 alias gcp="git checkout -p "
 alias grebase='git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
+alias grskip='git rebase --skip'
 alias grhard="git reset --hard "
 # Check out a commit with a floating head
 gfloat() {
