@@ -171,6 +171,7 @@ gfloat() {
 }
 alias grc='git rebase --continue'
 alias grs='git rebase --skip'
+alias gri='git rebase --interactive'
 
 alias hrc="hg resolve --mark && hg rebase --continue"
 alias hhc="hg resolve --mark && hg histedit --continue"
