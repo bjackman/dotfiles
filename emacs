@@ -20,7 +20,7 @@
        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
   (add-to-list 'package-archives (cons "melpa" url) t))
 
-(setq package-list '(helm-projectile projectile f s yaml-mode
+(setq package-list '(helm-projectile projectile f s yaml-mode go-mode
                      solarized-theme fill-column-indicator cider dts-mode
                      evil evil-mu4e async magit tabbar-ruler ggtags evil-collection))
 
@@ -320,11 +320,12 @@ it swallows keypresses)"
   (compile compile-command))
 (global-set-key (kbd "<f5>") 'save-exit-compile)
 
-(defun pyflakes ()
+(defun save-run ()
   (interactive)
-  (evil-exit-and-save)
-  (compile (concat "pyflakes " buffer-file-name)))
-(global-set-key (kbd "<f6>") 'pyflakes)
+  (if buffer-file-name
+      (save-buffer))
+  (projectile-run-project nil))
+(global-set-key (kbd "<f6>") 'save-run)
 
 (define-skeleton linux-printk-skeleton
   "Inserts a Linux printk call with the function name"
@@ -443,6 +444,12 @@ it swallows keypresses)"
 ;; For html
 (setq sgml-basic-offset 4)
 
+(defun my-go-mode-hook ()
+  ; Call Gofmt before saving
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
 (add-to-list 'exec-path "~/dotfiles/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 
@@ -468,8 +475,8 @@ it swallows keypresses)"
 (setq custom-file "~/dotfiles/.emacs-custom.el")
 (load custom-file)
 
-(set-face-attribute 'default nil :height 110) ;; God reads in 11pt
-(load-theme 'tango-dark)
+(set-face-attribute 'default nil :height 120) ;; God reads in 11pt
+(load-theme 'solarized-dark)
 (server-start)
 
 ;;

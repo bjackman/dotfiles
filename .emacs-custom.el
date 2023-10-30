@@ -38,7 +38,9 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(powershell eglot ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move))
+   '(powershell eglot ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move)
+   (quote
+    (jsonnet-mode go-mode gnuplot-mode rust-mode rust-auto-use ggtags fill-column-indiciator fill-column-indicator tabbar-ruler solarized-theme magit helm-projectile guide-key f evil color-theme buffer-move)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(projectile-project-root-files
@@ -65,6 +67,8 @@
  '(split-height-threshold 120)
  '(split-width-threshold 190)
  '(sql-product 'mysql)
+ '(sgml-basic-offset 4)
+ '(split-height-threshold 200)
  '(standard-indent 4)
  '(vc-follow-symlinks t))
 (custom-set-faces

@@ -2,7 +2,6 @@
 	email = jackmanb@chromium.org
 	name = Brendan Jackman
 [core]
-	editor = emacsclient
 	preloadindex = true
 	excludesfile = /home/brendan/dotfiles/global_gitignore
 [push]
