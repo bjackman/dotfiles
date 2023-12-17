@@ -5,7 +5,7 @@ set __fish_git_prompt_showcolorhints 1
 set __fish_git_prompt_color_branch cyan
 
 function fish_prompt
-   printf "%s%s%s%s \$ " \
-    (set_color $fish_color_cwd) $PWD (set_color normal) \
-    (fish_git_prompt)
+    printf "%s%s%s%s \$ " \
+        (set_color $fish_color_cwd) $PWD (set_color normal) \
+        (fish_git_prompt)
 end
