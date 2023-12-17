@@ -4,6 +4,7 @@ set --export __fish_git_prompt_showdirtystate 1
 set --export __fish_git_prompt_showuntrackedfiles 1
 set --export __fish_git_prompt_showcolorhints 1
 set --export __fish_git_prompt_color_branch cyan
+set --export __fish_git_prompt_char_cleanstate ""
 
 set brendan_git_prompt_file /tmp/brendan_git_prompt-$fish_pid
 
