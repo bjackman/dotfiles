@@ -13,9 +13,12 @@ function __fish_prompt_cleanup --on-event fish_exit
 end
 
 function fish_prompt
-    printf "%s%s%s%s\n\$ " \
-        (set_color $fish_color_cwd) (prompt_pwd --full-length-dirs 3) (set_color normal) \
-        $brendan_git_prompt
+    set _status $status
+    if [ $_status != 0 ];
+        set status_bit "$(set_color red)$_status$(set_color normal)"
+    end
+    set cwd_bit "$(set_color $fish_color_cwd)$(prompt_pwd --full-length-dirs 3)$(set_color normal)"
+    echo -e "$cwd_bit$brendan_git_prompt $status_bit\n\$ "
 end
 
 # Empirically it it seems that the fish_prompt event does not fire when the
