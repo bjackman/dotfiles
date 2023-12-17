@@ -13,8 +13,8 @@ function __fish_prompt_cleanup --on-event fish_exit
 end
 
 function fish_prompt
-    printf "%s%s%s%s \$ " \
-        (set_color $fish_color_cwd) $PWD (set_color normal) \
+    printf "%s%s%s%s\n\$ " \
+        (set_color $fish_color_cwd) (prompt_pwd --full-length-dirs 3) (set_color normal) \
         $brendan_git_prompt
 end
 
