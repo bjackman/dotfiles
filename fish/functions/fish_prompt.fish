@@ -18,7 +18,20 @@ function fish_prompt
         set --function status_bit "$(set_color red)$_status$(set_color normal)"
     end
     set --local cwd_bit "$(set_color $fish_color_cwd)$(prompt_pwd --full-length-dirs 3)$(set_color normal)"
-    echo -e "$cwd_bit$brendan_git_prompt $status_bit\n\$ "
+    # $CMD_DURATION is in ms.
+    if [ $CMD_DURATION > 1000 ]
+        # Stolen from https://github.com/jorgebucaran/hydro/blob/41b46a05c84a/conf.d/hydro.fish#L47
+        set --local secs (math --scale=1 $CMD_DURATION/1000 % 60)
+        set --local mins (math --scale=0 $CMD_DURATION/60000 % 60)
+        set --local hours (math --scale=0 $CMD_DURATION/3600000)
+        set --function duration_bit (set_color magenta)
+        test $hours -gt 0 && set --function --append duration_bit $hours"h"
+        test $mins  -gt 0 && set --function --append duration_bit $mins"m"
+        test $secs  -gt 0 && set --function --append duration_bit $secs"s"
+        set --function --append duration_bit (set_color normal)
+    end
+    # I have no idea why spaces are not needed here.
+    echo -e "$cwd_bit$brendan_git_prompt$duration_bit$status_bit\n\$ "
 end
 
 # Empirically it it seems that the fish_prompt event does not fire when the
