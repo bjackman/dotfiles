@@ -19,7 +19,7 @@ function fish_prompt
     end
     set --local cwd_bit "$(set_color $fish_color_cwd)$(prompt_pwd --full-length-dirs 3)$(set_color normal)"
     # $CMD_DURATION is in ms.
-    if [ $CMD_DURATION > 1000 ]
+    if [ $CMD_DURATION -gt 1000 ]
         # Stolen from https://github.com/jorgebucaran/hydro/blob/41b46a05c84a/conf.d/hydro.fish#L47
         set --local secs (math --scale=1 $CMD_DURATION/1000 % 60)
         set --local mins (math --scale=0 $CMD_DURATION/60000 % 60)
