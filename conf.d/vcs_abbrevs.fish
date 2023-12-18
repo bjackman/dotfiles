@@ -1,0 +1,38 @@
+abbr --add gap "git add -p "
+abbr --add gcam "git commit -am "
+abbr --add gcamend "git commit --amend"
+abbr --add gcaamend "git commit -a --amend"
+abbr --add gcaan "git commit -a --amend --no-edit"
+abbr --add gcm "git commit -m "
+abbr --add gsign "git commit --amend --signoff --no-edit "
+abbr --add gcf "git clean -f "
+abbr --add gs "git status"
+abbr --add gc "git checkout "
+abbr --add gcb "git checkout -b"
+abbr --add gcp "git checkout -p "
+abbr --add grebase 'git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
+abbr --add gr 'git rebase'
+abbr --add gri 'git rebase --interactive'
+abbr --add grc 'git rebase --continue'
+abbr --add grskip 'git rebase --skip'
+abbr --add grhard "git reset --hard "
+abbr --add gl "git lgg"
+abbr --add gfloat "git checkout (git rev-parse HEAD)"
+abbr --add gd "git diff"
+
+abbr --add hrc "hg resolve --mark && hg rebase --continue"
+abbr --add hhc "hg resolve --mark && hg histedit --continue"
+abbr --add hec "hg resolve --mark && hg evolve --continue"
+abbr --add heu "hg evolve --update"
+abbr --add hrm "hg resolve --mark ."
+abbr --add hua "hg uploadall --will-update-only"
+abbr --add hsa "hg sync --all"
+abbr --add hsu "hg sync --all && hg uploadall --will-update-only"
+abbr --add hgskip "hg revert -r.^ . && hg resolve --mark . && hg rebase --continue"
+abbr --add hup "hg update p4head"
+abbr --add hrp "hg rebase -r. -dp4head"
+abbr --add hrir "hg revert -i -r .^"
+abbr --add hrirp "hg revert -i -r p4head"
+abbr --add hap "hg amend && hg presubmit -d"
+abbr --add hp "hg presubmit -d"
+abbr --add hrt "hg rebase -d tip"
