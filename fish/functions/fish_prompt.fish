@@ -1,4 +1,4 @@
-# These need to be exported since we run fish_git_prompt in a subprocess.
+# These need to be exported since we run fish_vcs_prompt in a subprocess.
 set --export __fish_git_prompt_show_informative_status 1
 set --export __fish_git_prompt_showdirtystate 1
 set --export __fish_git_prompt_showuntrackedfiles 1
@@ -6,11 +6,13 @@ set --export __fish_git_prompt_showcolorhints 1
 set --export __fish_git_prompt_color_branch cyan
 set --export __fish_git_prompt_char_cleanstate ""
 
-set brendan_git_prompt_file /tmp/brendan_git_prompt-$fish_pid
+set --export fish_prompt_hg_show_informative_status
+
+set brendan_vcs_prompt_file /tmp/brendan_vcs_prompt-$fish_pid
 
 # Best effort cleanup...
 function __fish_prompt_cleanup --on-event fish_exit
-    rm $brendan_git_prompt_file
+    rm $brendan_vcs_prompt_file
 end
 
 function fish_prompt
@@ -32,17 +34,17 @@ function fish_prompt
         set --function --append duration_bit (set_color normal)
     end
     # I have no idea why spaces are not needed here.
-    echo -e "$cwd_bit$brendan_git_prompt$duration_bit$status_bit\n\$ "
+    echo -e "$cwd_bit$brendan_vcs_prompt$duration_bit$status_bit\n\$ "
 end
 
 # Empirically it it seems that the fish_prompt event does not fire when the
 # prompt is repainted. This is useful - if we did this logic directly from the
 # fish_prompt function then we'd get an infinite loop.
 function __fish_prompt_update --on-event fish_prompt
-    if [ "$brendan_git_prompt_skip" != "1" ]  # Avoid infinite recursion
-        brendan_git_prompt_skip=1 fish --private --command "fish_git_prompt > $brendan_git_prompt_file" &
-        function update_git_prompt --on-process-exit $last_pid
-            set --global brendan_git_prompt (cat $brendan_git_prompt_file)
+    if [ "$brendan_vcs_prompt_skip" != "1" ]  # Avoid infinite recursion
+        brendan_vcs_prompt_skip=1 fish --private --command "fish_vcs_prompt > $brendan_vcs_prompt_file" &
+        function update_vcs_prompt --on-process-exit $last_pid
+            set --global brendan_vcs_prompt (cat $brendan_vcs_prompt_file)
             # Update the prompt - this will call fish_prompt again.
             commandline --function repaint
         end
