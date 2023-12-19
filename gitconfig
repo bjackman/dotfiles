@@ -29,6 +29,7 @@
 	ui = true
 [rebase]
 	autosquash = true
+	updateRefs = true
 [branch]
 	autosetuprebase = always
 [gitreview]
