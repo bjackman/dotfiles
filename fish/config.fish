@@ -1,3 +1,8 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    abbr --add fnd "find . -name"
+
+    function newdir --wraps mkdir
+        mkdir -p $argv
+        cd $argv
+    end
 end
