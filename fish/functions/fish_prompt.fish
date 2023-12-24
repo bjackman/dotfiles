@@ -37,12 +37,16 @@ function fish_prompt
     echo -e "$cwd_bit$brendan_vcs_prompt$duration_bit$status_bit\n\$ "
 end
 
+# Useful for testing.
+set --export brendan_sleep_before_prompt 0
+
 # Empirically it it seems that the fish_prompt event does not fire when the
 # prompt is repainted. This is useful - if we did this logic directly from the
 # fish_prompt function then we'd get an infinite loop.
 function __fish_prompt_update --on-event fish_prompt
     if [ "$brendan_vcs_prompt_skip" != "1" ]  # Avoid infinite recursion
-        brendan_vcs_prompt_skip=1 fish --private --command "fish_vcs_prompt > $brendan_vcs_prompt_file" &
+        brendan_vcs_prompt_skip=1 fish --private --command \
+            "sleep $brendan_sleep_before_prompt; fish_vcs_prompt > $brendan_vcs_prompt_file" &
         function update_vcs_prompt --on-process-exit $last_pid
             set --global brendan_vcs_prompt (cat $brendan_vcs_prompt_file)
             # Update the prompt - this will call fish_prompt again.
