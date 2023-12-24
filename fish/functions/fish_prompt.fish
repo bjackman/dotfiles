@@ -39,12 +39,14 @@ end
 
 # Empirically it it seems that the fish_prompt event does not fire when the
 # prompt is repainted. This is useful - if we did this logic directly from the
-# fish_prompt function (e.g. by running the fish_vcs_prompt command in the
-# background and then repainting via an --on-process-exit event handler) then
-# we'd get an infinite loop.
+# fish_prompt function then we'd get an infinite loop.
 function __fish_prompt_update --on-event fish_prompt
-    fish --private --command "fish_vcs_prompt > $brendan_vcs_prompt_file" &
-    set --global brendan_vcs_prompt (cat $brendan_vcs_prompt_file)
-    # Update the prompt - this will call fish_prompt again.
-    commandline --function repaint
+    if [ "$brendan_vcs_prompt_skip" != "1" ]  # Avoid infinite recursion
+        brendan_vcs_prompt_skip=1 fish --private --command "fish_vcs_prompt > $brendan_vcs_prompt_file" &
+        function update_vcs_prompt --on-process-exit $last_pid
+            set --global brendan_vcs_prompt (cat $brendan_vcs_prompt_file)
+            # Update the prompt - this will call fish_prompt again.
+            commandline --function repaint
+        end
+    end
 end
