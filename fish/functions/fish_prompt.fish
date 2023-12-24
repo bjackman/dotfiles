@@ -44,6 +44,10 @@ set --export brendan_sleep_before_prompt 0
 # prompt is repainted. This is useful - if we did this logic directly from the
 # fish_prompt function then we'd get an infinite loop.
 function __fish_prompt_update --on-event fish_prompt
+    # Although this is an event handler we are still running "on the main
+    # thread" (also determined empirically). So we run the prompt command in the
+    # background and communicate the result via a file. A --universal variable
+    # would also work, but then it dirties this repository.
     fish --private --command \
         "sleep $brendan_sleep_before_prompt; fish_vcs_prompt > $brendan_vcs_prompt_file" &
     function update_vcs_prompt --on-process-exit $last_pid
