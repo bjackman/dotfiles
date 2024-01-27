@@ -34,7 +34,7 @@ function fish_prompt
         set --function --append duration_bit (set_color normal)
     end
     # I have no idea why spaces are not needed here.
-    echo -e "$cwd_bit$brendan_vcs_prompt$duration_bit$status_bit\n\$ "
+    echo -e "\n$(set_color -b brblack)$cwd_bit$brendan_vcs_prompt$duration_bit$status_bit\n$(set_color -b normal)❯❯ "
 end
 
 # Useful for testing.
