@@ -6,3 +6,5 @@ if status is-interactive
         cd $argv
     end
 end
+
+set PATH "$HOME/.cargo/bin:$PATH"
