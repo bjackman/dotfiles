@@ -10,6 +10,9 @@ abbr --add gs "git status"
 abbr --add gc "git checkout "
 abbr --add gcb "git checkout -b"
 abbr --add gcp "git checkout -p "
+abbr --add gcx "git cherry-pick -x"
+abbr --add gcpc "git cherry-pick --continue"
+abbr --add gcpa "git cherry-pick --abort"
 abbr --add grebase 'git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
 abbr --add gr 'git rebase'
 abbr --add gri 'git rebase --interactive'
