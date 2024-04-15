@@ -16,6 +16,7 @@ abbr --add gcpa "git cherry-pick --abort"
 abbr --add grebase 'git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
 abbr --add gr 'git rebase'
 abbr --add gri 'git rebase --interactive'
+abbr --add grm 'git rebase --interactive master'
 abbr --add grc 'git rebase --continue'
 abbr --add grskip 'git rebase --skip'
 abbr --add grhard "git reset --hard "
