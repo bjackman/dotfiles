@@ -13,6 +13,7 @@ abbr --add gcp "git checkout -p "
 abbr --add gcx "git cherry-pick -x"
 abbr --add gcpc "git cherry-pick --continue"
 abbr --add gcpa "git cherry-pick --abort"
+abbr --add gch "git cherry-pick"
 abbr --add grebase 'git rebase -i $(git rev-parse --abbrev-ref @{upstream})'
 abbr --add gr 'git rebase'
 abbr --add gri 'git rebase --interactive'
