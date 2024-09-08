@@ -24,6 +24,7 @@ abbr --add grhard "git reset --hard "
 abbr --add gl "git lgg"
 abbr --add gfloat "git checkout (git rev-parse HEAD)"
 abbr --add gd "git diff"
+abbr --add --position anywhere om "origin/master"
 
 abbr --add hrc "hg resolve --mark && hg rebase --continue"
 abbr --add hhc "hg resolve --mark && hg histedit --continue"
