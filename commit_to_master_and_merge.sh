@@ -8,7 +8,7 @@ fi
 
 git stash
 git checkout master
-git stash pop
+git stash pop --index
 GIT_EDITOR=vim git commit
 git push
 git checkout google
