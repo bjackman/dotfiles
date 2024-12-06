@@ -8,7 +8,10 @@ config-asi:
     grep ADDRESS_SPACE_ISOLATION .config
 
 bzimage:
-    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bzImage
+    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bzImage compile_commands.json
+
+vmlinux:
+    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= vmlinux compile_commands.json
 
 bindeb:
     make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bindeb-pkg
