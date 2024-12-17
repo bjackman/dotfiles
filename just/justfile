@@ -1,3 +1,11 @@
+config-asi-minimal:
+    scripts/config -e "64BIT" -e CPU_MITIGATIONS \
+        -e VIRTUALIZATION -e KVM -e KVM_INTEL -e KVM_AMD \
+        -d HYPERV -d CONFIG_PARAVIRT -e MITIGATION_ADDRESS_SPACE_ISOLATION  \
+        -e VMLINUX_OBJTOOL_STRICT
+    make -j olddefconfig
+    grep ADDRESS_SPACE_ISOLATION .config
+
 config-asi:
     scripts/config  -e "64BIT" -e CPU_MITIGATIONS \
         -d HYPERV -d CONFIG_PARAVIRT -e MITIGATION_ADDRESS_SPACE_ISOLATION \
@@ -5,7 +13,7 @@ config-asi:
         -d CONFIG_SYSTEM_TRUSTED_KEYS -d CONFIG_SYSTEM_REVOCATION_KEYS \
         -e CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT -e DEBUG_ENTRY \
         -e VIRTUALIZATION -e KVM -e KVM_INTEL -e KVM_AMD \
-        -e BPF_SYSCALL -e BPF_JIT -e DEBUG_INFO_BTF
+        -e BPF_SYSCALL -e BPF_JIT -e DEBUG_INFO_BTF -e VMLINUX_OBJTOOL_STRICT
     make -j olddefconfig
     grep ADDRESS_SPACE_ISOLATION .config
 
@@ -17,6 +25,11 @@ vmlinux:
 
 bindeb:
     make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bindeb-pkg
+
+asi-kunit:
+    tools/testing/kunit/kunit.py run --arch=x86_64 --timeout=10 \
+        --jobs=$(nproc --all) --kunitconfig=arch/x86/mm/.kunitconfig --qemu_args "-smp 2" \
+        --make_options "LLVM=1" --make_options "CC=ccache clang" --kernel_args "asi=on earlyprintk=serial"
 
 asi-qemu extra_args="": bzimage
     vm start  --kernel $PWD/arch/x86_64/boot/bzImage  --image ~/.vmcli/debian-x86_64.img \
