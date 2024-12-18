@@ -18,7 +18,7 @@ function link {
   fi
 }
 
-for file in .gitconfig .vimrc muttrc .emacs .tmux.conf .config/sway .config/fish .config/just; do
+for file in .gitconfig .vimrc muttrc .emacs .tmux.conf .config/sway .config/fish .config/just .hunspell_en_US; do
   link $file
 done
 
