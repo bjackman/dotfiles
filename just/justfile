@@ -18,13 +18,13 @@ config-asi:
     grep ADDRESS_SPACE_ISOLATION .config
 
 bzimage:
-    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bzImage compile_commands.json
+    make -sj$(( $(nproc) * 2)) CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bzImage compile_commands.json
 
 vmlinux:
-    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= vmlinux compile_commands.json
+    make -sj$(( $(nproc) * 2)) CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= vmlinux compile_commands.json
 
 bindeb:
-    make -sj100 CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bindeb-pkg
+    make -sj$(( $(nproc) * 2)) CC="ccache gcc" KBUILD_BUILD_TIMESTAMP= bindeb-pkg
 
 asi-kunit:
     tools/testing/kunit/kunit.py run --arch=x86_64 --timeout=10 \
