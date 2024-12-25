@@ -308,3 +308,9 @@ kunit
 kunitconfig
 behaviour
 parallelised
+strace
+stdout
+device1
+device2
+j64
+Limmat's
