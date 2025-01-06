@@ -198,6 +198,7 @@ RSB
 nonsensitivity
 Junaid's
 IPIs
+Corbet
 Gleixner
 Ingo
 Borislav
@@ -314,3 +315,13 @@ device1
 device2
 j64
 Limmat's
+Zijlstra
+bulletpoints
+v1
+clearcpuid
+setcpuid
+svm
+TODO
+puid
+5c9a92dec323
+srso
