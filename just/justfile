@@ -2,7 +2,7 @@ config-asi-minimal:
     ./scripts/config -e "64BIT" -e CPU_MITIGATIONS \
         -e VIRTUALIZATION -e KVM -e KVM_INTEL -e KVM_AMD \
         -d HYPERV -d CONFIG_PARAVIRT -e MITIGATION_ADDRESS_SPACE_ISOLATION  \
-        -e VMLINUX_OBJTOOL_STRICT
+        -e VMLINUX_OBJTOOL_STRICT -e ADDRESS_SPACE_ISOLATION
     make -j olddefconfig
     grep ADDRESS_SPACE_ISOLATION .config
 
