@@ -1,5 +1,6 @@
 #!/bin/bash
-set -eu
+MASTER=${MASTER:-master}
+set -eux
 
 if git diff --cached --quiet; then
     echo "Nothing staged, aborting"
@@ -7,12 +8,12 @@ if git diff --cached --quiet; then
 fi
 
 git stash
-git checkout master
+git checkout "$MASTER"
 git stash pop --index
 GIT_EDITOR=vim git commit
 git push
 git stash
 git checkout google
 git stash pop
-git merge --no-edit master
+git merge --no-edit "$MASTER"
 git push
