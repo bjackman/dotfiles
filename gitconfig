@@ -6,6 +6,7 @@
 	excludesfile = /home/brendan/dotfiles/global_gitignore
 [push]
 	default = upstream
+	autoSetupRemote = true
 [alias]
 	rbm = rebase -i master
 	lgg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -19,10 +20,12 @@
 	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
 	uncommit = reset HEAD@{1}
 [diff]
-	renames = copies
-	mnemonicprefix = false
+	renames = true
+	mnemonicPrefix = true
 	wsErrorHighlight = all
 	tool = meld
+	algorithm = histogram
+	colorMoved = plain
 [help]
 	autocorrect = 3
 [color]
@@ -32,6 +35,7 @@
 	updateRefs = true
 [branch]
 	autosetuprebase = always
+	sort = -committerdate
 [gitreview]
 	remote = origin
 [rerere]
@@ -54,3 +58,11 @@
  	 insteadof = https://user.git.corp.google.com
 [checkout]
  	workers = 0  # use num_cpu
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
