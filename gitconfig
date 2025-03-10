@@ -64,6 +64,5 @@
 	sort = version:refname
 [fetch]
 	prune = true
-	all = true
 [merge]
 	conflictstyle = zdiff3
