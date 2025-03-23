@@ -41,3 +41,6 @@ set -u fish_pager_color_progress "brwhite\x1e\x2d\x2dbackground\x3dcyan"
 set -u fish_pager_color_selected_background "\x2dr"
 
 export EDITOR=vim
+
+fish_add_path --prepend /usr/lib/ccache
+export CCACHE_SLOPPINESS=time_macros
