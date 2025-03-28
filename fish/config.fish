@@ -44,3 +44,5 @@ export EDITOR=vim
 
 fish_add_path --prepend /usr/lib/ccache
 export CCACHE_SLOPPINESS=time_macros
+
+abbr --add bat -- batcat
