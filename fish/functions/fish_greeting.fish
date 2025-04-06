@@ -1,6 +1,6 @@
 function fish_greeting
-  if which fortune &>/dev/null; and which cowsay &>/dev/null
-    fortune | cowsay -f turtle
+  if which -s fortune cowsay lolcat
+    fortune | cowsay -f turtle | lolcat
   else
         echo "\\
  ___________________________
