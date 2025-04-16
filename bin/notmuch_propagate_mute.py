@@ -20,6 +20,7 @@
 
 import collections
 import enum
+import os
 import signal
 
 import notmuch
@@ -99,7 +100,10 @@ def apply_mute(msg, parent_muted, parent_addressed):
 if __name__ == '__main__':
 	query_string = 'tag:mute-thread'
 
-	db = notmuch.Database(mode=notmuch.Database.MODE.READ_WRITE)
+	# Need to secify path explicitly, otherwise it doesn't work if the database
+	# path isn't explicit in notmuch-config.
+	db = notmuch.Database(path=os.path.expanduser('~/mail'),
+						  mode=notmuch.Database.MODE.READ_WRITE)
 	for thread in db.create_query(query_string).search_threads():
 		print_thread(next(thread.get_messages()))
 		print()
