@@ -17,3 +17,9 @@ state, importantly:
 
 Run `get_mail.sh` to initialise/update the mailbox. This has a hardcoded cutoff
 date in April 2025.
+
+Setup:
+
+```
+sudo apt install aerc notmuch python3-notmuch lei
+```
