@@ -25,7 +25,7 @@ function fish_prompt
         set --function shlvl_bit "$(set_color $fish_color yellow)<$SHLVL>$(set_color normal)"
     end
     set --function prompt_color normal
-    if [ -n $IN_NIX_SHELL ]
+    if set -q IN_NIX_SHELL
         set --function nix_bit "$(set_color brblue)nix$(set_color normal)"
         set --function prompt_color "brblue"
     end
