@@ -24,6 +24,11 @@ function fish_prompt
     if [ $SHLVL != "1" ]
         set --function shlvl_bit "$(set_color $fish_color yellow)<$SHLVL>$(set_color normal)"
     end
+    set --function prompt_color normal
+    if [ -n $IN_NIX_SHELL ]
+        set --function nix_bit "$(set_color brblue)nix$(set_color normal)"
+        set --function prompt_color "brblue"
+    end
     # $CMD_DURATION is in ms.
     if [ $CMD_DURATION -gt 1000 ]
         # Stolen from https://github.com/jorgebucaran/hydro/blob/41b46a05c84a/conf.d/hydro.fish#L47
@@ -37,7 +42,7 @@ function fish_prompt
         set --function --append duration_bit (set_color normal)
     end
     # I have no idea why spaces are not needed here.
-    echo -e "\n$(set_color -b brblack)$cwd_bit$brendan_vcs_prompt $shlvl_bit $duration_bit$status_bit\n$(set_color -b normal)❯❯  "
+    echo -e "\n$(set_color -b brblack)$cwd_bit$brendan_vcs_prompt $shlvl_bit $duration_bit$status_bit$nix_bit\n$(set_color  $prompt_color)❯❯$(set_color normal)  "
 end
 
 # Useful for testing.
