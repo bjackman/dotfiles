@@ -3,6 +3,10 @@
 #don't need to do all this shit if we're not interactive
 tty -s || return
 
+if [ -z "$NOFISH" ]; then
+  exec fish
+fi
+
 #SSH_ASKPASS holds `which gnome-ssh-askpass` by default. git calls this
 #graphical program even when running on a terminal (a bug). fix like this:
 unset SSH_ASKPASS
