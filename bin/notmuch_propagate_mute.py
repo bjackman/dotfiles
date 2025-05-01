@@ -104,17 +104,15 @@ if __name__ == '__main__':
 	# path isn't explicit in notmuch-config.
 	db = notmuch.Database(path=os.path.expanduser('~/mail'),
 						  mode=notmuch.Database.MODE.READ_WRITE)
-
-	# for thread in db.create_query(query_string).search_threads():
-	# 	print_thread(next(thread.get_messages()))
-	# 	print()
-	# 	print('muting...')
-
+	for thread in db.create_query(query_string).search_threads():
+		print_thread(next(thread.get_messages()))
+		print()
+		print('muting...')
 	# Must recreate the iterator each time due to the fucked up memory
 	# management, otherwise the library will SIGABRT.
 	for thread in db.create_query(query_string).search_threads():
 		apply_mute(next(thread.get_messages()), parent_muted=False, parent_addressed=None)
-		# print()
-		# print()
-	# for thread in db.create_query(query_string).search_threads():
-	# 	print_thread(next(thread.get_messages()))
+		print()
+		print()
+	for thread in db.create_query(query_string).search_threads():
+		print_thread(next(thread.get_messages()))
