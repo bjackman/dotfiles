@@ -102,6 +102,8 @@ def apply_mute(msg, parent_muted, parent_addressed):
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="Mute threads in notmuch.")
 	parser.add_argument('--verbose', '-v', action='store_true')
+	parser.add_argument('thread_msgid', nargs='?',
+					    help="Only propagate in thread containing this message")
 	args = parser.parse_args()
 
 	if args.verbose:
@@ -110,14 +112,24 @@ if __name__ == '__main__':
 		logging.basicConfig(level=logging.WARNING, format='%(message)s')
 
 	query_string = 'tag:mute-thread'
+	if args.thread_msgid is not None:
+		query_string += ' thread:{id:%s}' % args.thread_msgid
 
 	# Need to secify path explicitly, otherwise it doesn't work if the database
 	# path isn't explicit in notmuch-config.
 	db = notmuch.Database(path=os.path.expanduser('~/mail'),
 						  mode=notmuch.Database.MODE.READ_WRITE)
+	threads_found = 0
 	for thread in db.create_query(query_string).search_threads():
 		print_thread(next(thread.get_messages()))
 		logging.info('muting...')
+
+		threads_found += 1
+
+	if not threads_found:
+		logging.error(f'No threads found for query: {query_string}')
+		exit(1)
+
 	# Must recreate the iterator each time due to the fucked up memory
 	# management, otherwise the library will SIGABRT.
 	for thread in db.create_query(query_string).search_threads():
