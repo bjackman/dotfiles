@@ -18,7 +18,9 @@
 # but it still SIGABRTed, I dunno maybe I got that wrong.
 #
 
+import argparse
 import collections
+import logging
 import enum
 import os
 import signal
@@ -62,7 +64,7 @@ def print_thread(msg, nest_level=0):
 	else:
 		tag_chars += ' '
 
-	print(f'{'  ' * nest_level}<{tag_chars}> {msg.get_header('Subject')}')
+	logging.info(f'{'  ' * nest_level}<{tag_chars}> {msg.get_header('Subject')}')
 	for reply in msg.get_replies():
 		print_thread(reply, nest_level + 1)
 
@@ -98,6 +100,15 @@ def apply_mute(msg, parent_muted, parent_addressed):
 
 
 if __name__ == '__main__':
+	parser = argparse.ArgumentParser(description="Mute threads in notmuch.")
+	parser.add_argument('--verbose', '-v', action='store_true')
+	args = parser.parse_args()
+
+	if args.verbose:
+		logging.basicConfig(level=logging.INFO, format='%(message)s')
+	else:
+		logging.basicConfig(level=logging.WARNING, format='%(message)s')
+
 	query_string = 'tag:mute-thread'
 
 	# Need to secify path explicitly, otherwise it doesn't work if the database
@@ -106,13 +117,10 @@ if __name__ == '__main__':
 						  mode=notmuch.Database.MODE.READ_WRITE)
 	for thread in db.create_query(query_string).search_threads():
 		print_thread(next(thread.get_messages()))
-		print()
-		print('muting...')
+		logging.info('muting...')
 	# Must recreate the iterator each time due to the fucked up memory
 	# management, otherwise the library will SIGABRT.
 	for thread in db.create_query(query_string).search_threads():
 		apply_mute(next(thread.get_messages()), parent_muted=False, parent_addressed=None)
-		print()
-		print()
 	for thread in db.create_query(query_string).search_threads():
 		print_thread(next(thread.get_messages()))
