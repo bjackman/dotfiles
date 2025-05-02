@@ -23,3 +23,9 @@ Setup:
 ```
 sudo apt install aerc notmuch python3-notmuch lei
 ```
+
+Mailing list bankrupcty - mute all threads in the inbox that I'm not addressed to:
+
+```
+notmuch tag +mute-thread 'not tag:archived and not tag:thread-muted and not to:jackmanb@google.com' | wc -l
+```
