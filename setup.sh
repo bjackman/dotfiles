@@ -19,7 +19,7 @@ function link {
 }
 
 for file in \
-    .gitconfig .vimrc muttrc .emacs .tmux.conf .config/sway .config/aerc \
+    .gitconfig .vimrc muttrc .emacs .tmux.conf .config/aerc \
     .config/fish .config/just .config/lei .hunspell_en_US .notmuch-config;
 do
   link $file
