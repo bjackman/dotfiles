@@ -14,7 +14,7 @@ function link {
     echo "~/$1 already exists, could not create link"
   else
     # ${foo#.} removes the '.' from the beginning of $foo
-    ln -vs ${dotfiles_dir}/$(basename ${1#.}) ~/$1
+    ln -vs ${dotfiles_dir}/${1#.} ~/$1
   fi
 }
 
