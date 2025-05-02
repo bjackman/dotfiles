@@ -1,3 +1,0 @@
-# Some fucking stupid incantation to make the scroll wheel work
-# http://stackoverflow.com/questions/359109/using-the-scrollwheel-in-gnu-screen
-termcapinfo xterm* ti@:te@
