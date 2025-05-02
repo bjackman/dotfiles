@@ -1,0 +1,11 @@
+[Unit]
+Description=Triggers get_mail oneshot service periodically
+Requires=get_mail.service
+
+[Timer]
+Unit=get_mail.service
+# This will run hourly.
+OnCalendar=*-*-* *:00:00
+
+[Install]
+WantedBy=timers.target

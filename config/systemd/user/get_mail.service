@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs my get_mail.sh thingy
+Wants=get_mail.timer
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/bin/get_mail.sh
+StandardError=journal
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -20,9 +20,11 @@ function link {
 
 for file in \
     .gitconfig .vimrc muttrc .emacs .tmux.conf .config/aerc \
+    .config/systemd/user/get_mail.timer .config/systemd/user/get_mail.service \
     .config/fish .config/just .hunspell_en_US .notmuch-config;
 do
   link $file
 done
 
+systemd --user daemon-reload
 source ~/.bashrc

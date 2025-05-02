@@ -16,7 +16,7 @@ state, importantly:
   Then the Aerc `query-map.conf` will filter that tag out of the Inbox view.
 
 Run `get_mail.sh` to initialise/update the mailbox. This has a hardcoded cutoff
-date in April 2025.
+date in April 2025. This should get run hourly by a systemd timer in theory.
 
 Setup:
 
